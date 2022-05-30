@@ -1,7 +1,10 @@
-import Image from 'next/image';
 import { Header } from '../components/Header';
-import { Flex, Box, Text, Button, HStack, Link } from '@chakra-ui/react';
-import computer from '../../public/assets/computer.png'
+import { About } from '../components/about';
+import { Introduce } from '../components/Introduce';
+import Technologies from '../components/Technologies';
+import Experiences from '../components/Experiences';
+
+import { Flex, Box, Text, Button, HStack, Link, Divider, extendTheme } from '@chakra-ui/react';
 
 export default function Home() {
   return (
@@ -11,28 +14,10 @@ export default function Home() {
     h="100vh"
   >
     <Header />
-    <Flex
-    w="100vw"
-    h="100vh"
-    mt={16}
-    direction="row"
-    >
-      <Box>
-        <Text fontSize="6xl" color="gray.50" fontFamily="Monoton" >
-          LUCAS
-          <br />
-          GALVÃO
-        </Text>
-      </Box>
-      <Box position="relative" width="800px" height="600px">
-        <Image src={computer} alt="computer" layout="fill"/>
-
-        
-      </Box>
-
-
-    </Flex>    
-
+    <Introduce />
+    <About />
+    <Technologies />
+    <Experiences />
   </Flex>
 
   )
