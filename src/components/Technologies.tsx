@@ -1,5 +1,5 @@
 import { Box, Flex, Text, Image, HStack  } from "@chakra-ui/react";
-import typeorm from '../../public/assets/typeorm.png';
+import typeorm from '../../public/typeorm.png';
 
 export function Technologies() {
   return(
@@ -7,7 +7,7 @@ export function Technologies() {
     w="100vw"
     direction="row"
     id="tech"
-    backgroundColor="gray.800"
+    bgColor="#e1dad8"
     >
     <Box h="700px" w="100%" display="flex" flexDirection="column">
       <Box h={12} display="flex" justifyContent="center" alignItems="center" mt={8}>
@@ -53,8 +53,8 @@ export function Technologies() {
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" boxSize={16} />
           </Box>
           <Box>
-            <Image alt="typeorm" src="/typeorm.png" boxSize={16} />
-          </Box>
+            <Image alt="typeorm" src="/typeorm.png"  boxSize={16} />
+          </Box>s
           <Box>
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" boxSize={16} />
           </Box>          

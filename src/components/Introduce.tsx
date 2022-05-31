@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Text  } from "@chakra-ui/react";
 import Image from 'next/image';
 import { FiUser } from "react-icons/fi";
-import computer from '../../public/assets/computer-2.jpg'
+import computer from '../../public/computer-2.jpg'
 
 export function Introduce() {
   return(
@@ -15,7 +15,6 @@ export function Introduce() {
     display="flex"
     width="100vw"
     height="400px"
-    backgroundColor="gray.800"
     > 
       <Box w="55%" h="100%">
         <Box
@@ -56,20 +55,17 @@ export function Introduce() {
             size="sm"
             mt={5}
             color="white"
-            backgroundColor="red.500"
+            backgroundColor="teal.400"
             colorScheme="black"
             _hover={{
               background: "white",
-              color: "red.500"
+              color: "teal.400"
             }}
             variant="solid">
               Saiba Mais
           </Button>
         </Box>
       </Box>
-      <Box position="relative" width="45%" justifyContent="center" alignItems="center">
-        <Image src={computer} alt="computer" layout="fill"/> 
-      </Box>  
     </Box>
     </Flex>    
   )

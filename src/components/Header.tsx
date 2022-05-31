@@ -2,13 +2,13 @@ import NextLink from 'next/link';
 import { Link } from "react-scroll";
 import { HStack, Button, Flex } from '@chakra-ui/react';
 import { FiUser, FiAward, FiGitMerge, FiBriefcase } from 'react-icons/fi';
+import landscape from '../../public/landscape.jpg'
 
 export function Header() {
     return (
     <Flex
       w="100%"
-      h="12"
-      bg="red.500"
+      h="20"
       p="4"
       position="absolute"
       justify="flex-end"
@@ -22,8 +22,8 @@ export function Header() {
             color="white"
             colorScheme="white"
             _hover={{
-              background: "white",
-              color: "red.500"
+              background: "teal.400",
+              color: "white"
             }}
             variant="solid">
           Sobre Mim
@@ -35,8 +35,8 @@ export function Header() {
               size="sm"
               color="white"
               _hover={{
-                background: "white",
-                color: "red.500"
+                background: "teal.400",
+                color: "white"
               }}
               colorScheme="purple.200">
             Tecnologias
@@ -47,8 +47,8 @@ export function Header() {
             leftIcon={<FiAward/>}
             color="white"
             _hover={{
-              background: "white",
-              color: "red.500"
+              background: "teal.400",
+              color: "white"
             }}
             size="sm"
             colorScheme="white">
@@ -60,8 +60,8 @@ export function Header() {
             size="sm"
             color="white"
             _hover={{
-              background: "white",
-              color: "red.500"
+              background: "teal.400",
+              color: "white"
             }}
             colorScheme="purple.200">
           Experiências Profissionais

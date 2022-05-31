@@ -1,6 +1,6 @@
 import { Box, Flex, Text  } from "@chakra-ui/react";
 import Image from 'next/image';
-import computer from '../../public/assets/computer-2.jpg'
+import computer from '../../public/computer-2.jpg'
 
 export function About() {
   return(

@@ -26,5 +26,12 @@ export const theme = extendTheme({
                 color: 'gray.50',
             }
         }
+    },
+    variants: {
+        'divider': {
+            bg: 'black',
+            size: "20px",
+            solid: "5px",
+        },
     }
 })
