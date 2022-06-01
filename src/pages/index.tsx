@@ -4,31 +4,19 @@ import { Introduce } from '../components/Introduce';
 import Technologies from '../components/Technologies';
 import Experiences from '../components/Experiences';
 
-import { Flex, Box, Text, Button, HStack, Link, Divider, extendTheme } from '@chakra-ui/react';
+import { Flex, Box, Text, Button, HStack, Link, extendTheme } from '@chakra-ui/react';
 
 export default function Home() {
   return (
-    
-  <>
-    <Flex
-      direction="column"
-      h="600px"
-      w="100vw"
-      bgImage="pineapple.jpg"
-      bgSize="contain"
-    >
-      <Header />
-      <Introduce />
-    </Flex>
-    <Flex
-      direction="column"
-      h="100vh"
-    >
-        <About />
-        <Technologies />
-        <Experiences />
+    <Flex w="100%" maxWidth="100vw" flexDirection="column">
+      
+      <Flex h="700px" flexDirection="column" bgImage="pineapple.jpg" bgSize="contain">
+        <Header />
+        <Introduce />
       </Flex>
-  </>
-
+      <Flex>
+        <About />
+      </Flex>
+    </Flex>
   )
 }

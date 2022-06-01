@@ -2,7 +2,6 @@ import NextLink from 'next/link';
 import { Link } from "react-scroll";
 import { HStack, Button, Flex } from '@chakra-ui/react';
 import { FiUser, FiAward, FiGitMerge, FiBriefcase } from 'react-icons/fi';
-import landscape from '../../public/landscape.jpg'
 
 export function Header() {
     return (
@@ -19,7 +18,7 @@ export function Header() {
           <Button
             leftIcon={<FiUser/>}
             size="sm"
-            color="white"
+            color="gray.400"
             colorScheme="white"
             _hover={{
               background: "teal.400",
@@ -33,7 +32,7 @@ export function Header() {
           <Button
               leftIcon={<FiGitMerge/>}
               size="sm"
-              color="white"
+              color="gray.400"
               _hover={{
                 background: "teal.400",
                 color: "white"
@@ -45,7 +44,7 @@ export function Header() {
         <Link to="conquers" smooth={true} duration={1000}>
           <Button
             leftIcon={<FiAward/>}
-            color="white"
+            color="gray.400"
             _hover={{
               background: "teal.400",
               color: "white"
@@ -58,7 +57,7 @@ export function Header() {
           <Button
             leftIcon={<FiBriefcase/>}
             size="sm"
-            color="white"
+            color="gray.400"
             _hover={{
               background: "teal.400",
               color: "white"

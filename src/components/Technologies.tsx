@@ -4,14 +4,13 @@ import typeorm from '../../public/typeorm.png';
 export function Technologies() {
   return(
     <Flex
-    w="100vw"
     direction="row"
     id="tech"
     bgColor="#e1dad8"
     >
     <Box h="700px" w="100%" display="flex" flexDirection="column">
       <Box h={12} display="flex" justifyContent="center" alignItems="center" mt={8}>
-        <Text fontWeight={500} fontSize="3xl">Tecnologias</Text>
+        <Text fontWeight={500} color="gray.700"fontSize="3xl">Tecnologias</Text>
       </Box> 
       <Box h={12} display="flex" justifyContent="center" alignItems="center" mb={8}>
         <Text color="red.500" fontWeight={500} fontSize="3xl">Frontend</Text>

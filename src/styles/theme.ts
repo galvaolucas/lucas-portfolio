@@ -27,11 +27,4 @@ export const theme = extendTheme({
             }
         }
     },
-    variants: {
-        'divider': {
-            bg: 'black',
-            size: "20px",
-            solid: "5px",
-        },
-    }
 })

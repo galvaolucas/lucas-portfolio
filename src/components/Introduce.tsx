@@ -1,12 +1,10 @@
 import { Box, Button, Flex, Text  } from "@chakra-ui/react";
-import Image from 'next/image';
 import { FiUser } from "react-icons/fi";
-import computer from '../../public/computer-2.jpg'
 
 export function Introduce() {
   return(
     <Flex
-    w="100vw"
+    w="100%"
     h="100vh"
     mt={12}
     direction="row"
@@ -25,12 +23,12 @@ export function Introduce() {
           mt={12}
           pl={12}
           alignItems="start">
-          <Text fontSize="5xl" color="white" fontFamily="Tapestry" >
+          <Text fontSize="5xl" color="gray.700" fontFamily="Tapestry" >
             Lucas Galvão
           </Text>
           <Text
             fontSize="2xl"
-            color="white"
+            color="gray.700"
             fontWeight={600}
             fontFamily="Roboto"
             mt={5}
@@ -39,7 +37,7 @@ export function Introduce() {
           </Text>
           <Text
             fontSize="0xl"
-            color="white"
+            color="gray.700"
             fontWeight={300}
             fontFamily="Roboto"
             mt={2}

@@ -5,7 +5,6 @@ import computer from '../../public/computer-2.jpg'
 export function About() {
   return(
     <Flex
-    w="100vw"
     h="100vh"
     direction="row"
     id="aboutme"
@@ -26,13 +25,14 @@ export function About() {
             color="gray.900"
             fontWeight={600}
             fontFamily="Roboto"
-            pl="5rem">
+            pl="5rem"
+          >
             Fullstack Software Developer
           </Text>
         </Box>
       </Box>
       <Box position="relative" width="60%">
-        {/* <Image src={computer} alt="computer" layout="responsive" height={4} width={6} />  */}
+      
       </Box>  
     </Box>
     </Flex>    
