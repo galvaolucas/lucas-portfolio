@@ -30,7 +30,7 @@ export function Introduce() {
             fontSize="2xl"
             color="gray.700"
             fontWeight={600}
-            fontFamily="Roboto"
+            fontFamily="Poppins"
             mt={5}
             >
             Fullstack Software Developer
@@ -39,12 +39,12 @@ export function Introduce() {
             fontSize="0xl"
             color="gray.700"
             fontWeight={300}
-            fontFamily="Roboto"
+            fontFamily="Poppins"
             mt={2}
             >
             Olá, sou o Lucas Galvão.
             <br/>
-            Tenho 26 anos, sou formado em Engenharia Elétrica pela UFRN.
+            Tenho 26 anos, formado em Engenharia Elétrica pela UFRN.
             <br/>
             Atualmente estou cursando Análise e Desenvolvimento de Sistemas na UnP.
           </Text>

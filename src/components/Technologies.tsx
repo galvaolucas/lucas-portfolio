@@ -1,5 +1,8 @@
 import { Box, Flex, Text, Image, HStack  } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import typeorm from '../../public/typeorm.png';
+
+const MotionTechnologiersBox = motion(Flex);
 
 export function Technologies() {
   return(
@@ -13,59 +16,73 @@ export function Technologies() {
         <Text fontWeight={500} color="gray.700"fontSize="3xl">Tecnologias</Text>
       </Box> 
       <Box h={12} display="flex" justifyContent="center" alignItems="center" mb={8}>
-        <Text color="red.500" fontWeight={500} fontSize="3xl">Frontend</Text>
+        <Text color="teal.300" fontWeight={500} fontSize="3xl">Frontend</Text>
       </Box> 
 
       <Box display="flex" alignItems="center" justifyContent="center">
-        <HStack spacing={8}>
-          <Box>
+        <HStack spacing={16}>
+          <MotionTechnologiersBox
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            drag="x"
+            ragConstraints={{ left: -100, right: 100 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" boxSize={16} />
-          </Box>
-          <Box>
+            <Text fontSize="14px" mt="5px">React JS</Text>
+          </MotionTechnologiersBox>
+          <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" boxSize={16} />
-          </Box>
-          <Box>
+            <Text fontSize="14px" mt="5px">Typescript</Text>
+          </Flex>
+          <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" boxSize={16} />
-          </Box>
-          <Box>
+            <Text fontSize="14px" mt="5px">Javascript</Text>
+          </Flex>
+          <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" boxSize={16} />
-          </Box>
-          <Box>
+            <Text fontSize="14px" mt="5px">HTML5</Text>
+          </Flex>
+          <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" boxSize={16} />
-          </Box>
+            <Text fontSize="14px" mt="5px">CSS3</Text>
+          </Flex>
         </HStack>
       </Box>
 
       <Box h={12} display="flex" justifyContent="center" alignItems="center" mb={8} mt={8}>
-        <Text color="red.500" fontWeight={500} fontSize="3xl">Backend</Text>
+        <Text color="teal.300" fontWeight={500} fontSize="3xl">Backend</Text>
       </Box> 
 
       <Box display="flex" alignItems="center" justifyContent="center">
-        <HStack spacing={8}>
-          <Box>
+        <HStack spacing={16}>
+        <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" boxSize={16} />
-          </Box>
-          <Box>
+            <Text fontSize="14px" mt="5px">Node JS</Text>
+          </Flex>
+          <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" boxSize={16} />
-          </Box>
-          <Box>
+            <Text fontSize="14px" mt="5px">Postgres</Text>
+          </Flex>
+          <Flex direction="column" alignItems="center" justifyContent="center">
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" boxSize={16} />
-          </Box>
-          <Box>
-            <Image alt="typeorm" src="/typeorm.png"  boxSize={16} />
-          </Box>s
-          <Box>
-            <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" boxSize={16} />
-          </Box>          
+            <Text fontSize="14px" mt="5px">MySQL</Text>
+          </Flex>
+          <Flex direction="column" alignItems="center" justifyContent="center">
+            <Image alt="react" src="typeorm.png" boxSize={16} />
+            <Text fontSize="14px" mt="5px">TypeORM</Text>
+          </Flex>
         </HStack>
       </Box>
 
       <Box h={12} display="flex" justifyContent="center" alignItems="center" mb={8} mt={8}>
-        <Text color="red.500" fontWeight={500} fontSize="3xl">Ferramentas</Text>
+        <Text color="teal.300" fontWeight={500} fontSize="3xl">Ferramentas</Text>
       </Box> 
 
       <Box display="flex" alignItems="center" justifyContent="center">
-        <HStack spacing={8}>
+        <HStack spacing={16}>
           <Box>
             <Image alt="react" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" boxSize={16} />
           </Box>

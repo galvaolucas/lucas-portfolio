@@ -1,7 +1,9 @@
-import { Box, Flex, Text, Divider, HStack, VStack  } from "@chakra-ui/react";
+import { Box, Flex, Text, Divider, HStack, VStack, Icon, Button  } from "@chakra-ui/react";
 import { extendTheme } from '@chakra-ui/react';
 import { motion } from "framer-motion";
 import { BsFillPersonLinesFill } from 'react-icons/bs';
+import { BiDownload } from 'react-icons/bi';
+
 import Image from 'next/image';
 import computer from '../../public/computer-2.jpg'
 
@@ -19,6 +21,7 @@ export function About() {
     display="flex"
     w="100%"
     flexDirection="row"
+    alignItems="center"
     height="500px"
     bgColor="white"
     > 
@@ -28,13 +31,14 @@ export function About() {
       <Box position="relative" width="50%" mr="30px">
         <Box
           display="flex"
-          mt="5"
           flexDirection="column"
           alignItems="start">
-          <Text fontSize="2xl" color="gray.900" fontFamily="Roboto" >
-            
-            Informações Pessoais
-          </Text>
+          <Flex direction="row" align="center" gap="10px">
+            <Icon as={BsFillPersonLinesFill} w={6} h={6} color="teal.300"/>
+            <Text fontSize="2xl" color="gray.900" fontFamily="Poppins" >
+              Informações Pessoais
+            </Text>
+          </Flex>
           <Divider orientation="horizontal" size="10" color="teal.400" variant="solid"/>
         </Box>
           <MotionAboutBox
@@ -42,8 +46,8 @@ export function About() {
             display="flex"
             mt="5"
             p="10px"
-            flexDirection="column"
-            alignItems="start"
+            flexDirection="row"
+            alignItems="center"
             justifyContent="center"
             border="2px solid"
             borderColor="yellow.400"
@@ -53,85 +57,84 @@ export function About() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             >
-            <VStack spacing={4}>
+            <HStack spacing={20} alignItems="center" display="flex" flexDirection="row" justify="center">
             <Box
               display="flex"
-              flexDirection="row"
+              flexDirection="column"
             >
-              <HStack spacing={8}>
                 <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
                     Nome:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Lucas de Melo Galvão</Text>
                 </Box>
                 <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
-                    Idade:
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                    Estado:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">26 anos</Text>
-                </Box>
-              </HStack>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-            >
-              <HStack spacing={8}>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
-                    Telefone:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
                 </Box>
                 <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
-                    Endereço:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
-                </Box>
-              </HStack>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-            >
-              <HStack spacing={8}>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
                     Experiência:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">55 (84) 9 9617-0738</Text>
                 </Box>
                 <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
                     Github:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">galvaolucas</Text>
                 </Box>
-              </HStack>
             </Box>
+              
             <Box
               display="flex"
-              flexDirection="row"
+              flexDirection="column"
             >
-              <HStack spacing={8}>
                 <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
-                    Email:
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                    Idade:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
                 </Box>
                 <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="gray.900" fontFamily="Roboto">
-                    Nome:
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                    Cidade:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Roboto">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Natal</Text>
                 </Box>
-              </HStack>
+                <Box display="flex" flexDirection="row">
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                    Pensar:
+                  </Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Lucas de Melo Galvão</Text>
+                </Box>
+                <Box display="flex" flexDirection="row">
+                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                    LinkedIn:
+                  </Text>
+                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Poppins">lucasmgalv</Text>
+                </Box>
             </Box>
-            </VStack> 
+            </HStack> 
           </MotionAboutBox>
+          <Button
+              leftIcon={<BiDownload/>}
+              mt={5}
+              size="sm"
+              color="white"
+              bgColor="teal.400"
+              _hover={{
+                background: "white",
+                color: "teal.400",
+                border: "2px solid",
+                borderColor: "teal.400",
+              }}
+              colorScheme="teal.400"
+              >
+            Download CV
+            </Button>
         </Box>
       </Box>  
     </Flex>    

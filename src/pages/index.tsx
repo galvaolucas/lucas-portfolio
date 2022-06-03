@@ -9,13 +9,13 @@ import { Flex, Box, Text, Button, HStack, Link, extendTheme } from '@chakra-ui/r
 export default function Home() {
   return (
     <Flex w="100%" maxWidth="100vw" flexDirection="column">
-      
-      <Flex h="700px" flexDirection="column" bgImage="pineapple.jpg" bgSize="contain">
+      <Flex h="600px" flexDirection="column" bgImage="pineapple.jpg" bgSize="contain">
         <Header />
         <Introduce />
       </Flex>
-      <Flex>
+      <Flex direction="column">
         <About />
+        <Technologies />
       </Flex>
     </Flex>
   )
