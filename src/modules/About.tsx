@@ -1,11 +1,7 @@
 import { Box, Flex, Text, Divider, HStack, VStack, Icon, Button  } from "@chakra-ui/react";
-import { extendTheme } from '@chakra-ui/react';
 import { motion } from "framer-motion";
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { BiDownload } from 'react-icons/bi';
-
-import Image from 'next/image';
-import computer from '../../public/computer-2.jpg'
 
 const MotionAboutBox = motion(Box);
 
@@ -52,7 +48,6 @@ export function About() {
             border="2px solid"
             borderColor="yellow.400"
             borderRadius="10px"
-            drag="x"
             ragConstraints={{ left: -100, right: 100 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}

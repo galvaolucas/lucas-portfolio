@@ -18,7 +18,7 @@ export function Header() {
           <Button
             leftIcon={<FiUser/>}
             size="sm"
-            color="gray.400"
+            color="white"
             colorScheme="white"
             _hover={{
               background: "teal.400",
@@ -28,11 +28,11 @@ export function Header() {
           Sobre Mim
           </Button>
         </Link>
-        <Link to="techs">
+        <Link to="techs" smooth={true} duration={1000}>
           <Button
               leftIcon={<FiGitMerge/>}
               size="sm"
-              color="gray.400"
+              color="white"
               _hover={{
                 background: "teal.400",
                 color: "white"
@@ -44,7 +44,7 @@ export function Header() {
         <Link to="conquers" smooth={true} duration={1000}>
           <Button
             leftIcon={<FiAward/>}
-            color="gray.400"
+            color="white"
             _hover={{
               background: "teal.400",
               color: "white"
@@ -54,10 +54,11 @@ export function Header() {
           Conquistas
           </Button>
         </Link>
+        <Link to="experiences" smooth={true} duration={1000}>
           <Button
             leftIcon={<FiBriefcase/>}
             size="sm"
-            color="gray.400"
+            color="white"
             _hover={{
               background: "teal.400",
               color: "white"
@@ -65,6 +66,7 @@ export function Header() {
             colorScheme="purple.200">
           Experiências Profissionais
           </Button>
+        </Link>
       </HStack>
     </Flex>
     );  
