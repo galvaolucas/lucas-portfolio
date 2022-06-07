@@ -12,7 +12,7 @@ interface MotionExpBoxProps {
 export function MotionExpBox({companyName, role, description}:MotionExpBoxProps) {
     return (
         <MotionExperiencesBox
-            width="350px"
+            width="450px"
             height="150px"
             display="flex"
             p="10px"
@@ -26,31 +26,28 @@ export function MotionExpBox({companyName, role, description}:MotionExpBoxProps)
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             >
-                <HStack spacing={20} alignItems="center" display="flex" flexDirection="row" justify="center">
                     <Box
                     display="flex"
-                    flexDirection="column"
+                    flexDirection="row"
                     >
-                        <Box display="flex" flexDirection="row">
-                        <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                            Empresa:
-                        </Text>
-                        <Text ml="5px" fontSize="1xl" fontFamily="Poppins">{companyName}</Text>
+                        <Box display="flex" flexDirection="column" alignItems="end">
+                            <Text fontSize="16px" color="teal.600" fontFamily="Poppins">
+                                Empresa:
+                            </Text>
+                            <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                                Função:
+                            </Text>
+                            <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                                Descrição:
+                            </Text>
                         </Box>
-                        <Box display="flex" flexDirection="row">
-                        <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                            Função:
-                        </Text>
-                        <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
-                        </Box>
-                        <Box display="flex" flexDirection="row">
-                        <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                            Descrição:
-                        </Text>
-                        <Text ml="5px" fontSize="1xl" fontFamily="Poppins">{description}</Text>
-                        </Box>
+
+                        <Flex direction="column" justifyContent="center" alignItems="start" gap="4px">
+                            <Text ml="5px" fontSize="14px" fontFamily="Poppins" textAlign="justify">{companyName}</Text>
+                            <Text ml="5px" fontSize="14px" fontFamily="Poppins" textAlign="justify">{role}</Text>
+                            <Text ml="5px" fontSize="14px" fontFamily="Poppins" textAlign="justify">{description}</Text>
+                        </Flex>
                     </Box>
-                </HStack> 
             </MotionExperiencesBox>
     )
 }

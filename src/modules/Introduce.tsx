@@ -60,7 +60,7 @@ export function Introduce() {
               color: "teal.400"
             }}
             variant="solid">
-              Saiba Mais
+              Entre em Contato
           </Button>
         </Box>
       </Box>

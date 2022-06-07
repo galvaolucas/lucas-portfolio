@@ -71,7 +71,7 @@ export function About() {
                 </Box>
                 <Box display="flex" flexDirection="row">
                   <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Experiência:
+                    Telefone:
                   </Text>
                   <Text ml="5px" fontSize="1xl" fontFamily="Poppins">55 (84) 9 9617-0738</Text>
                 </Box>

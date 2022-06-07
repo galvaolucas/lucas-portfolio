@@ -41,19 +41,6 @@ export function Header() {
             Tecnologias
           </Button>
         </Link>
-        <Link to="conquers" smooth={true} duration={1000}>
-          <Button
-            leftIcon={<FiAward/>}
-            color="white"
-            _hover={{
-              background: "teal.400",
-              color: "white"
-            }}
-            size="sm"
-            colorScheme="white">
-          Conquistas
-          </Button>
-        </Link>
         <Link to="experiences" smooth={true} duration={1000}>
           <Button
             leftIcon={<FiBriefcase/>}
@@ -67,6 +54,20 @@ export function Header() {
           Experiências Profissionais
           </Button>
         </Link>
+        <Link to="contact" smooth={true} duration={1000}>
+          <Button
+            leftIcon={<FiAward/>}
+            color="white"
+            _hover={{
+              background: "teal.400",
+              color: "white"
+            }}
+            size="sm"
+            colorScheme="white">
+          Contato
+          </Button>
+        </Link>
+        
       </HStack>
     </Flex>
     );  
