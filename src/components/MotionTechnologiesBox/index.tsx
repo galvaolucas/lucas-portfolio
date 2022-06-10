@@ -18,7 +18,7 @@ export function MotionBox({text, link}:MotionTechBoxProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
         >
-            <Image alt="react" src={link} boxSize={16} />
+            <Image alt="tech" src={link} boxSize={16} />
             <Text fontSize="14px" mt="5px">{text}</Text>
         </MotionTechnologiesBox>
     )

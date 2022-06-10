@@ -31,13 +31,13 @@ export function Experiences() {
         />
         <TimelineRight
         periodFrom="Junho/2019"
-        periodTo="Novembro/2019"
+        periodTo="Março/2020"
         role="Projetista Elétrico"
         description="Projetista elétrico e de cabeamento estruturado. Suporte em licitações, orçamentos e comercial."
         companyName="LUMEN Energia e Automação"
         />
         <TimelineLeft
-        periodFrom="Novembro/2019"
+        periodFrom="Março/2020"
         periodTo="Março/2022"
         role="Analista de Engenharia / Coordenador"
         description="Coordenador de projetos, licitações e manutenções."
