@@ -1,5 +1,5 @@
-import { Box, Flex, HStack, Image, Text, VStack} from "@chakra-ui/react";
-import api from 'axios';
+import { VStack} from "@chakra-ui/react";
+import { api } from '../../../services/api';
 import { useForm } from 'react-hook-form';
 import {
     FormErrorMessage,
@@ -8,14 +8,10 @@ import {
     Input,
     Button,
   } from '@chakra-ui/react'
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { IForm } from "../../dtos/dtos";
 
 export function ContactForm() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [subject, setSubject] = useState('');
     const [formData, setFormData] = useState<IForm>();
 
     const {
@@ -24,11 +20,17 @@ export function ContactForm() {
         formState: { errors, isSubmitting },
       } = useForm({mode: "all"});
 
-    
-      const onSubmit = (data: IForm) => {
-        api.post('localhost:3333/email', {
-          data,
-        })
+      async function onSubmit(event: FormEvent) {
+
+        const body = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          description: formData.description,
+        }
+
+        await api.post('/sendEmail', body);
+
       }
       
       return (
@@ -41,7 +43,10 @@ export function ContactForm() {
                 placeholder='Nome'
                 {...register("name")}
                 onChange={(event) => {
-                  setName(event.target.value)
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    name: event.target.value,
+                  }))
                 }}
               />
               <FormErrorMessage>
@@ -56,7 +61,10 @@ export function ContactForm() {
                 placeholder='Email'
                 {...register("email")}
                 onChange={(event) => {
-                  setEmail(event.target.value)
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    email: event.target.value,
+                  }))
                 }}
               />
               <FormErrorMessage>
@@ -71,7 +79,10 @@ export function ContactForm() {
                 placeholder='Telefone'
                 {...register("phone")}
                 onChange={(event) => {
-                    setPhone(event.target.value)
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    phone: event.target.value,
+                  }))
                 }}
               />
               <FormErrorMessage>
@@ -86,7 +97,10 @@ export function ContactForm() {
                 placeholder='Assunto'
                 {...register("description")}
                 onChange={(event) => {
-                  setSubject(event.target.value)
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    description: event.target.value,
+                  }))
                 }}
               />
               <FormErrorMessage>
