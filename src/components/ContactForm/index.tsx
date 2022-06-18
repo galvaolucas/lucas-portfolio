@@ -30,7 +30,6 @@ export function ContactForm() {
         }
 
         await api.post('/sendEmail', body);
-
       }
       
       return (
