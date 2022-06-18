@@ -1,5 +1,5 @@
 import { container } from 'tsyringe';
-import IMailProvider from './IMailProvider';
+import IMailProvider from '../../dtos/dtos';
 import { GoogleProvider } from './GoogleProvider';
 
 const mailProvider = {

@@ -1,5 +1,5 @@
 import { Flex, VStack} from "@chakra-ui/react";
-import { api } from '../../../services/api';
+import { api } from '../../services/api';
 import { useForm } from 'react-hook-form';
 import InputMask from 'react-input-mask';
 import {

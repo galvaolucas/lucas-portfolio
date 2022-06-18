@@ -1,9 +1,8 @@
 import nodemailer, { Transporter } from 'nodemailer';
 import handlebars from 'handlebars';
 import fs from 'fs';
-import path from 'path';
 import { google } from 'googleapis';
-import IMailProvider from './IMailProvider';
+import IMailProvider from '../../dtos/dtos';
 
 interface IGoogleCredential {
     client_id: string;

@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { query as q } from 'faunadb';
-import { faunaClient } from '../../../services/fauna';
+import { faunaClient } from '../../services/fauna';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
-import { GoogleProvider } from '../../../services/providers/GoogleProvider';
+import { GoogleProvider } from '../../services/providers/GoogleProvider';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST') {
