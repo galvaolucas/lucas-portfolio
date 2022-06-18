@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Text  } from "@chakra-ui/react";
+import { Link } from "react-scroll";
 import { FiUser } from "react-icons/fi";
 
 export function Introduce() {
@@ -48,20 +49,22 @@ export function Introduce() {
             <br/>
             Atualmente estou cursando Análise e Desenvolvimento de Sistemas na UnP.
           </Text>
-          <Button
-            leftIcon={<FiUser/>}
-            size="sm"
-            mt={5}
-            color="white"
-            backgroundColor="teal.400"
-            colorScheme="black"
-            _hover={{
-              background: "white",
-              color: "teal.400"
-            }}
-            variant="solid">
-              Entre em Contato
-          </Button>
+          <Link to="contact" smooth={true} duration={2000}>
+            <Button
+              leftIcon={<FiUser/>}
+              size="sm"
+              mt={5}
+              color="white"
+              backgroundColor="teal.400"
+              colorScheme="black"
+              _hover={{
+                background: "white",
+                color: "teal.400"
+              }}
+              variant="solid">
+                Entre em Contato
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Box>

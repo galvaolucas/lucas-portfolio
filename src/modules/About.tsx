@@ -101,9 +101,9 @@ export function About() {
                 </Box>
                 <Box display="flex" flexDirection="row">
                   <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Pensar:
+                    Profissão:
                   </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Lucas de Melo Galvão</Text>
+                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Desenvolvedor Fullstack</Text>
                 </Box>
                 <Box display="flex" flexDirection="row">
                   <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">

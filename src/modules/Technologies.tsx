@@ -19,6 +19,10 @@ export function Technologies() {
       <Box display="flex" alignItems="center" justifyContent="center">
         <HStack spacing={16}>
           <MotionBox
+              text="Next JS"
+              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+          />
+          <MotionBox
             text="React JS"
             link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
           />
@@ -63,6 +67,10 @@ export function Technologies() {
               text="TypeORM"
               link="typeorm.png"
             />
+            <MotionBox
+              text="FaunaDB"
+              link="fauna.png"
+            />
         </HStack>
       </Box>
 
@@ -72,10 +80,6 @@ export function Technologies() {
 
       <Box display="flex" alignItems="center" justifyContent="center">
         <HStack spacing={16}>
-          <MotionBox
-              text="Next JS"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-            />
           <MotionBox
               text="Docker"
               link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"

@@ -1,6 +1,7 @@
-import { VStack} from "@chakra-ui/react";
+import { Flex, VStack} from "@chakra-ui/react";
 import { api } from '../../../services/api';
 import { useForm } from 'react-hook-form';
+import InputMask from 'react-input-mask';
 import {
     FormErrorMessage,
     FormLabel,
@@ -10,6 +11,8 @@ import {
   } from '@chakra-ui/react'
 import { FormEvent, useState } from "react";
 import { IForm } from "../../dtos/dtos";
+import { FiUser } from "react-icons/fi";
+
 
 export function ContactForm() {
     const [formData, setFormData] = useState<IForm>();
@@ -35,8 +38,8 @@ export function ContactForm() {
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
           <VStack spacing={4}>
-          <FormControl isInvalid={errors.name}>
-              <FormLabel htmlFor='name'>Nome</FormLabel>
+            <FormControl isInvalid={errors.name}>
+                <FormLabel htmlFor='name'>Nome</FormLabel>
               <Input
                 id='name'
                 placeholder='Nome'
@@ -47,6 +50,7 @@ export function ContactForm() {
                     name: event.target.value,
                   }))
                 }}
+                isRequired={true}
               />
               <FormErrorMessage>
                 {errors.name}
@@ -57,7 +61,8 @@ export function ContactForm() {
               <FormLabel htmlFor='email'>Email</FormLabel>
               <Input
                 id='email'
-                placeholder='Email'
+                type="email"
+                placeholder='email@example.com'
                 {...register("email")}
                 onChange={(event) => {
                   setFormData((prevState) => ({
@@ -65,6 +70,7 @@ export function ContactForm() {
                     email: event.target.value,
                   }))
                 }}
+                isRequired={true}
               />
               <FormErrorMessage>
                 {errors.email}
@@ -73,17 +79,17 @@ export function ContactForm() {
             
             <FormControl isInvalid={errors.phone}>
               <FormLabel htmlFor='phone'>Telefone</FormLabel>
-              <Input
-                id='phone'
-                placeholder='Telefone'
-                {...register("phone")}
-                onChange={(event) => {
-                  setFormData((prevState) => ({
-                    ...prevState,
-                    phone: event.target.value,
-                  }))
-                }}
-              />
+                <Input as={InputMask} mask="(99) 99999-9999"
+                  id='phone'
+                  placeholder='Telefone'
+                  {...register("phone")}
+                  onChange={(event) => {
+                    setFormData((prevState) => ({
+                      ...prevState,
+                      phone: event.target.value,
+                    }))
+                  }}
+                />
               <FormErrorMessage>
                 {errors.phone}
               </FormErrorMessage>
@@ -101,16 +107,18 @@ export function ContactForm() {
                     description: event.target.value,
                   }))
                 }}
+                isRequired={true}
               />
               <FormErrorMessage>
                 {errors.description}
               </FormErrorMessage>
             </FormControl>
-            
-            <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+          </VStack>
+          <Flex w="100%" align="center" justifyContent="center">
+            <Button mt={8} colorScheme='teal' isLoading={isSubmitting} type='submit'>
               Enviar
             </Button>
-          </VStack>
+          </Flex>
         </form>
       )
 }

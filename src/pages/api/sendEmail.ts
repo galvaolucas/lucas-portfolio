@@ -9,7 +9,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST') {
 
         const response = req.body;
+
         const name = response.name;
+        const phone = response.phone;
         const email = new GoogleProvider;
        
         try {
@@ -35,10 +37,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 'services',
                 'providers',
                 'views',
-                'emailVerificationCode.hbs',
+                'emailLayout.hbs',
             );
 
-            await email.sendMail(response.email, 'Confirmação de Email', email_path, {
+            await email.sendMail(response.email, 'Email de Confirmação' , email_path, {
                 name,
             });
             

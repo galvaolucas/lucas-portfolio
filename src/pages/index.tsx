@@ -4,6 +4,8 @@ import Introduce from '../modules/Introduce';
 import Technologies from '../modules/Technologies';
 import Experiences from '../modules/Experiences';
 import Contact from '../modules/Contact';
+import Footer from '../modules/Footer';
+
 
 import { Flex, Box, Text, Button, HStack, Link, extendTheme } from '@chakra-ui/react';
 
@@ -19,6 +21,7 @@ export default function Home() {
         <Technologies />
         <Experiences />
         <Contact />
+        <Footer />
       </Flex>
     </Flex>
   )
