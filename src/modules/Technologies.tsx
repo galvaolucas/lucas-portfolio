@@ -20,27 +20,27 @@ export function Technologies() {
         <HStack spacing={16}>
           <MotionBox
               text="Next JS"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
           />
           <MotionBox
             text="React JS"
-            link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
           />
           <MotionBox
             text="Typescript"
-            link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+            icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
           />
           <MotionBox
             text="Javascript"
-            link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
           />
           <MotionBox
             text="HTML5"
-            link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
           />
           <MotionBox
             text="CSS3"
-            link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
           />
         </HStack>
       </Box>
@@ -53,23 +53,23 @@ export function Technologies() {
         <HStack spacing={16}>
           <MotionBox
               text="Node JS"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
             />
             <MotionBox
               text="Postgres"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
             />
             <MotionBox
               text="My SQL"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
             />
             <MotionBox
               text="TypeORM"
-              link="typeorm.png"
+              icon_link="typeorm.png"
             />
             <MotionBox
               text="FaunaDB"
-              link="fauna.png"
+              icon_link="fauna.png"
             />
         </HStack>
       </Box>
@@ -82,31 +82,31 @@ export function Technologies() {
         <HStack spacing={16}>
           <MotionBox
               text="Docker"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
             />
             <MotionBox
               text="Lint"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
             />
             <MotionBox
               text="Figma"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
             />
             <MotionBox
               text="Github"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
             />
             <MotionBox
               text="Gitflow"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
             />
             <MotionBox
               text="Jira"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
             />
             <MotionBox
               text="Linux"
-              link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+              icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
             />
         </HStack>
       </Box>

@@ -2,6 +2,7 @@ import { Box, Flex, Text, Divider, HStack, VStack, Icon, Button  } from "@chakra
 import { motion } from "framer-motion";
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { BiDownload } from 'react-icons/bi';
+import MotionBox from "../components/MotionTechnologiesBox";
 
 const MotionAboutBox = motion(Box);
 
@@ -38,7 +39,7 @@ export function About() {
           <Divider orientation="horizontal" size="10" color="teal.400" variant="solid"/>
         </Box>
           <MotionAboutBox
-            height="200px"
+            height="270px"
             display="flex"
             mt="5"
             p="10px"
@@ -52,68 +53,82 @@ export function About() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             >
-            <HStack spacing={20} alignItems="center" display="flex" flexDirection="row" justify="center">
-            <Box
-              display="flex"
-              flexDirection="column"
-            >
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Nome:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Lucas de Melo Galvão</Text>
+              <Flex direction="column">
+                <HStack spacing={20} alignItems="center" display="flex" flexDirection="row" justify="center">
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                >
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Nome:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Lucas de Melo Galvão</Text>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Estado:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Telefone:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">55 (84) 9 9617-0738</Text>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Github:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">galvaolucas</Text>
+                    </Box>
                 </Box>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Estado:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
+                  
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                >
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Idade:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Cidade:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Natal</Text>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        Profissão:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Desenvolvedor Fullstack</Text>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                      <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
+                        LinkedIn:
+                      </Text>
+                      <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Poppins">lucasmgalv</Text>
+                    </Box>
                 </Box>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Telefone:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">55 (84) 9 9617-0738</Text>
-                </Box>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Github:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">galvaolucas</Text>
-                </Box>
-            </Box>
-              
-            <Box
-              display="flex"
-              flexDirection="column"
-            >
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Idade:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">26 anos</Text>
-                </Box>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Cidade:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Natal</Text>
-                </Box>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    Profissão:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" fontFamily="Poppins">Desenvolvedor Fullstack</Text>
-                </Box>
-                <Box display="flex" flexDirection="row">
-                  <Text fontSize="1xl" color="teal.600" fontFamily="Poppins">
-                    LinkedIn:
-                  </Text>
-                  <Text ml="5px" fontSize="1xl" color="gray.900" fontFamily="Poppins">lucasmgalv</Text>
-                </Box>
-            </Box>
-            </HStack> 
-          </MotionAboutBox>
+                </HStack> 
+                <HStack width="100%" height="100px" mt="20px" align="center" justifyContent="center" spacing={10}>
+                  <MotionBox
+                    click_link="https://www.linkedin.com/in/lucasm-galvao/"
+                    has_link={true}
+                    text="LinkedIn"
+                    icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                  />
+                   <MotionBox
+                    text="Github"
+                    icon_link="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  />
+                </HStack>
+              </Flex>
+            </MotionAboutBox>
           <Button
               leftIcon={<BiDownload/>}
               mt={5}
