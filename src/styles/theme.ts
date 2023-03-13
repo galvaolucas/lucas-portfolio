@@ -24,7 +24,16 @@ export const theme = extendTheme({
             body: {
                 bg: 'white',
                 color: 'gray.900',
-            }
+            },
         }
     },
+    components: {
+        Button: {
+            baseStyle: {
+                _focus: {
+                    boxShadow: 'none !important',
+                }
+            }
+        },
+    }
 })
