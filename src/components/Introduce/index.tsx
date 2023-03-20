@@ -38,9 +38,11 @@ export function Introduce() {
             >
             Olá, sou o Lucas Galvão.
             <br/>
-            Tenho 26 anos, formado em Engenharia Elétrica pela UFRN.
+            Tenho 27 anos, formado em Engenharia Elétrica pela UFRN.
             <br/>
-            Atualmente estou cursando Análise e Desenvolvimento de Sistemas na UnP.
+            Há dois anos atuo como programador fullstack.
+            <br/>
+            Atualmente estou cursando Análise e Desenvolvimento de Sistemas na Universidade Potiguar.
           </Text>
           <Link to="contact" smooth={true} duration={2000}>
             <Button
@@ -52,7 +54,8 @@ export function Introduce() {
               colorScheme="black"
               _hover={{
                 background: "white",
-                color: "teal.400"
+                color: "teal.400",
+                border: '2px solid teal'
               }}
               variant="solid">
                 Entre em Contato

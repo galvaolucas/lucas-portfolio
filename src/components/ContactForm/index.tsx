@@ -32,7 +32,7 @@ export function ContactForm() {
           description: formData.description,
         }
 
-        await api.post('/sendEmail', body);
+        await api.post('/users/contact', body);
       }
       
       return (
