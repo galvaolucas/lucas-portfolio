@@ -6,14 +6,16 @@ export default function Layout({ children }) {
     return (
     <Flex
         flexDir='column'
-        w='100%'
-        h='100%'
+        w={["100%", "75%", "50%", "25%"]}
+        h={["100%", "75%", "50%", "25%"]}
+        minW='100vw'
+        minH='100vh'
+        border='1px solid black'
         justifyContent='space-between'
-        minHeight='100vh'
     >
         <Flex
-            w='100%'
-            h='100%'
+            w='full'
+            h='full'
             flexDir='column'
         >
             <Header />

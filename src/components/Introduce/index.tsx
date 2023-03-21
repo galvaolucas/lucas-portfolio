@@ -10,16 +10,13 @@ export function Introduce() {
     h='100%'
     direction="row"
     >
-      <Box w="55%" h="100%">
+      <Box w={[600, 700, 800]} h="100%">
         <Box
-          height="100%"
-          w="100%"
           display="flex"
           flexDirection="column"
           mt={12}
           pl={12}
           alignItems="start">
-          
           <Text
             fontSize="2xl"
             color="gray.700"

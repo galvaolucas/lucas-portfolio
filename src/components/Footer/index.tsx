@@ -9,20 +9,19 @@ const MotionAboutBox = motion(Box);
 export function About() {
   return(
     <Flex
-    w="100%"
-    h="100px"
-    direction="row"
-    id="footer"
+      w="100%"
+      h={{ base: '100%' }}
+      direction="row"
+      mb='2rem'
     >
     <Box
-    display="flex"
-    w="100%"
-    height="100%"
-    gap={2}
-    flexDirection="row"
-    justifyContent="center"
-    alignItems="center"
-    bgColor="white"
+      display="flex"
+      w="100%"
+      gap={2}
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
+      bgColor="white"
     >
         <Text color="teal.500">Desenvolvido por Lucas Galvão - 2022</Text>
         <AiOutlineCopyrightCircle size={20} />

@@ -115,7 +115,7 @@ export function ContactForm() {
             </FormControl>
           </VStack>
           <Flex w="100%" align="center" justifyContent="center">
-            <Button mt={8} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+            <Button w={'30%'} mt={8} colorScheme='teal' isLoading={isSubmitting} type='submit'>
               Enviar
             </Button>
           </Flex>

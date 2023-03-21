@@ -9,12 +9,10 @@ export function Header() {
     return (
     <Flex
       w="100%"
-      p="4"
       h={40}
       align='start'
       justify="space-between"
       mt='4'
-      mr="12"
     >
       <Box
         w='200px'
@@ -24,7 +22,8 @@ export function Header() {
       >
         <Image src={logo} alt='logo' />
       </Box>
-      <HStack spacing="4">
+      <Flex flexDir={{ sm: 'column', md: 'row' }} gap={{ sm: '1rem', md: '5rem', xl: '10rem' }}>
+        <Box>
         <Link as={NextLink} href='/' >
           <Button
             leftIcon={<FiUser/>}
@@ -39,6 +38,8 @@ export function Header() {
           Sobre Mim
           </Button>
         </Link>
+        </Box>
+        <Box>
         <Link as={NextLink} href='/technologies'>
           <Button
               leftIcon={<FiGitMerge/>}
@@ -53,6 +54,7 @@ export function Header() {
             Tecnologias
           </Button>
         </Link>
+        </Box>
         <Link as={NextLink} href='/experiences' >
           <Button
             leftIcon={<FiBriefcase/>}
@@ -79,7 +81,7 @@ export function Header() {
           Contato
           </Button>
         </Link>
-      </HStack>
+      </Flex>
     </Flex>
     );  
 }
