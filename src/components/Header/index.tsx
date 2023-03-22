@@ -24,7 +24,6 @@ export function Header() {
       mt='4'
     >
       <Flex flexDir='row' p='1rem' width='100%' justifyContent='space-between' gap={{ sm: '1rem', md: '5rem', xl: '10rem' }} backgroundColor='teal.400'>
-        <Box>
         <Link as={NextLink} href='/' >
           <Button
             leftIcon={<FiUser/>}
@@ -39,8 +38,6 @@ export function Header() {
           About Me
           </Button>
         </Link>
-        </Box>
-        <Box>
         <Link as={NextLink} href='/technologies'>
           <Button
               leftIcon={<FiGitMerge/>}
@@ -55,7 +52,6 @@ export function Header() {
             Technologies
           </Button>
         </Link>
-        </Box>
         <Link as={NextLink} href='/experiences' >
           <Button
             leftIcon={<FiBriefcase/>}

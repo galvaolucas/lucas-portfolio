@@ -114,7 +114,7 @@ export function Introduce() {
                 _hover={{
                   background: "white",
                   color: "teal.500",
-                  border: '2px solid teal'
+                  border: '2 npx solid teal'
                 }}
                 >
                   Entre em Contato
