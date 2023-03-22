@@ -10,7 +10,6 @@ export default function Layout({ children }) {
         h={["100%", "75%", "50%", "25%"]}
         minW='100vw'
         minH='100vh'
-        border='1px solid black'
         justifyContent='space-between'
     >
         <Flex
