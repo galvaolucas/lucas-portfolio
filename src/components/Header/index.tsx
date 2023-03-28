@@ -8,9 +8,10 @@ import { FiUser, FiAward, FiGitMerge, FiBriefcase } from 'react-icons/fi';
 import { IoOptionsOutline } from 'react-icons/io5';
 import { useMediaQuery } from 'react-responsive';
 import React from 'react';
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 
 export function Header() {
-  const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 850px)` });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef()
 
@@ -18,17 +19,16 @@ export function Header() {
     return (
     <Flex
       w="100%"
-      h={40}
-      align='start'
-      justify="space-between"
-      mt='4'
+      align='center'
+      mt='6'
     >
-      <Flex flexDir='row' p='1rem' width='100%' justifyContent='space-between' gap={{ sm: '1rem', md: '5rem', xl: '10rem' }} backgroundColor='teal.400'>
+      <Flex flexDir='row' p='1rem' width='100%' justifyContent='space-between' backgroundColor='teal.400'>
         <Link as={NextLink} href='/' >
           <Button
             leftIcon={<FiUser/>}
-            size="md"
+            size="xl"
             color="white"
+            p='1rem'
             colorScheme="white"
             _hover={{
               background: "white",
@@ -40,8 +40,9 @@ export function Header() {
         </Link>
         <Link as={NextLink} href='/technologies'>
           <Button
+              p='1rem'
               leftIcon={<FiGitMerge/>}
-              size="md"
+              size="xl"
               color="white"
               _hover={{
                 background: "white",
@@ -55,7 +56,8 @@ export function Header() {
         <Link as={NextLink} href='/experiences' >
           <Button
             leftIcon={<FiBriefcase/>}
-            size="md"
+            p='1rem'
+            size="xl"
             color="white"
             _hover={{
               background: "white",
@@ -65,15 +67,30 @@ export function Header() {
           Professional Experiences
           </Button>
         </Link>
+        <Link as={NextLink} href='/projects' >
+          <Button
+            leftIcon={<AiOutlineFundProjectionScreen />}
+            p='1rem'
+            size="xl"
+            color="white"
+            _hover={{
+              background: "white",
+              color: "teal.500"
+            }}
+            colorScheme="purple.200">
+          Projects
+          </Button>
+        </Link>
         <Link as={NextLink} href='/contact'>
           <Button
+            p='1rem'
             leftIcon={<FiAward/>}
             color="white"
             _hover={{
               background: "white",
               color: "teal.500"
             }}
-            size="md"
+            size="xl"
             colorScheme="white">
           Contact Me
           </Button>
@@ -100,7 +117,7 @@ export function Header() {
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody>
-          <Flex flexDir='column' gap={{ sm: '2rem', md: '4rem', xl: '6rem' }}>
+          <Flex flexDir='column' gap='2rem'>
               <Link as={NextLink} href='/' >
                 <Button
                   leftIcon={<FiUser/>}
@@ -108,7 +125,7 @@ export function Header() {
                   color="white"
                   backgroundColor='teal.400'
                   variant="solid">
-                Sobre Mim
+                About me
                 </Button>
               </Link>
               <Link as={NextLink} href='/technologies'>
@@ -118,7 +135,7 @@ export function Header() {
                     color="white"
                     backgroundColor='teal.400'
                     >
-                  Tecnologias
+                  Technologies
                 </Button>
               </Link>
               <Link as={NextLink} href='/experiences' >
@@ -127,7 +144,16 @@ export function Header() {
                   size="sm"
                   color="white"
                   backgroundColor='teal.400'>
-                Experiências Profissionais
+                Professional Experiences
+                </Button>
+              </Link>
+              <Link as={NextLink} href='/projects' >
+                <Button
+                  leftIcon={<FiBriefcase/>}
+                  size="sm"
+                  color="white"
+                  backgroundColor='teal.400'>
+                Projects
                 </Button>
               </Link>
               <Link as={NextLink} href='/contact'>
@@ -136,7 +162,7 @@ export function Header() {
                   color="white"
                   size="sm"
                   backgroundColor='teal.400'>
-                Contato
+                Contact me
                 </Button>
               </Link>
             </Flex>

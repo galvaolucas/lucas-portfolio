@@ -13,8 +13,8 @@ export default function Layout({ children }) {
         justifyContent='space-between'
     >
         <Flex
-            w='full'
-            h='full'
+            w='100%'
+            h='100%'
             flexDir='column'
         >
             <Header />

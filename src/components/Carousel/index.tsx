@@ -5,7 +5,7 @@ import { TbPoint } from 'react-icons/tb';
 import { FiDownload } from 'react-icons/fi';
 
 interface CarouselProps {
-    renderImages: { id: number, image: StaticImageData }[]
+	renderImages: { id: number, image: StaticImageData }[]
 }
 
 export const Carousel = ({ renderImages }: CarouselProps): React.ReactElement => {
@@ -15,17 +15,17 @@ export const Carousel = ({ renderImages }: CarouselProps): React.ReactElement =>
         <Flex
          w='100%'
          h='100%'
-         mt='40px'
-        >   
+				 border='1px solid black'
+        >
             <Button
                 backgroundColor='white'
                 color='black'
                 _hover={{
-                    backgroundColor: 'none'
+									backgroundColor: 'none'
                 }}
                 position='absolute'
                 zIndex={1}
-                top={225}
+                top={265}
                 left={270}
                 onClick={() => {}}
             >
@@ -36,8 +36,8 @@ export const Carousel = ({ renderImages }: CarouselProps): React.ReactElement =>
             <Image src={renderImages[page].image} alt='resume'/>
             <Box
                 position='absolute'
-                bottom='100px'
-                left='550px'
+                bottom='130px'
+                left='500px'
                 zIndex={0}
             >
                 <HStack>

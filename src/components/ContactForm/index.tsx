@@ -15,21 +15,18 @@ import { FiUser } from "react-icons/fi";
 
 
 export function ContactForm() {
-    const [formData, setFormData] = useState<IForm>();
-
     const {
         handleSubmit,
         register,
         formState: { errors, isSubmitting },
       } = useForm({mode: "all"});
 
-      async function onSubmit(event: FormEvent) {
-
+      async function onSubmit(data: IForm) {
         const body = {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          description: formData.description,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          description: data.description,
         }
 
         await api.post('/users/contact', body);
@@ -44,12 +41,6 @@ export function ContactForm() {
                 id='name'
                 placeholder='Nome'
                 {...register("name")}
-                onChange={(event) => {
-                  setFormData((prevState) => ({
-                    ...prevState,
-                    name: event.target.value,
-                  }))
-                }}
                 isRequired={true}
               />
               <FormErrorMessage>
@@ -64,12 +55,6 @@ export function ContactForm() {
                 type="email"
                 placeholder='email@example.com'
                 {...register("email")}
-                onChange={(event) => {
-                  setFormData((prevState) => ({
-                    ...prevState,
-                    email: event.target.value,
-                  }))
-                }}
                 isRequired={true}
               />
               <FormErrorMessage>
@@ -83,12 +68,6 @@ export function ContactForm() {
                   id='phone'
                   placeholder='Telefone'
                   {...register("phone")}
-                  onChange={(event) => {
-                    setFormData((prevState) => ({
-                      ...prevState,
-                      phone: event.target.value,
-                    }))
-                  }}
                 />
               <FormErrorMessage>
                 {errors.phone}
@@ -101,12 +80,6 @@ export function ContactForm() {
                 id='description'
                 placeholder='Assunto'
                 {...register("description")}
-                onChange={(event) => {
-                  setFormData((prevState) => ({
-                    ...prevState,
-                    description: event.target.value,
-                  }))
-                }}
                 isRequired={true}
               />
               <FormErrorMessage>

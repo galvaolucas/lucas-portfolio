@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Text  } from "@chakra-ui/react";
+import { Box, Flex, Text  } from "@chakra-ui/react";
 import cv01 from '../../../public/cv_01.jpg';
 import cv02 from '../../../public/cv_02.jpg';
 import { Carousel } from "../../components/Carousel";
@@ -15,19 +15,17 @@ export function Experiences() {
     },
 ]
   return(
-    <Flex
-      direction="column"
-      w='100%'
-      h="100%"
-    >
       <Box 
         w='600px'
-        h='800px'
+        mb='3rem'
+        mt='5rem'
         ml='260px'
-      >
+      > 
+        <Flex>
+          <Text fontSize='48px' fontWeight='bold' color='teal.500'>Resume.</Text>
+        </Flex>
         <Carousel renderImages={renderImages} />
       </Box>
-    </Flex>    
   )
 }
 
