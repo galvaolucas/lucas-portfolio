@@ -5,8 +5,7 @@ import ContactForm from "../../components/ContactForm";
 export function Contact() {
   return(
     <Flex
-      w="100%"
-      h="900px"
+      w='100%'
       direction="column"
       align='center'
     >
@@ -25,7 +24,7 @@ export function Contact() {
         boxShadow="2px"
         gap="15px"
         >
-        <Flex w="100%" gap={2} align="center" justifyContent="center">
+        <Flex gap={2} align="center" justifyContent="center">
           <Heading fontSize="18px" color="teal.500">Insira seus dados e me envie um e-mail!</Heading>
           <BiMailSend size={24} />
         </Flex>

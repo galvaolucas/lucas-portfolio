@@ -14,5 +14,16 @@ export interface IMailProvider {
     ): Promise<void>;
 }
 
+export interface IProject {
+  key: number;
+  card: {
+    title: string;
+    description: string;
+    file: StaticImageData;
+    link?: string;
+    technologies?: string[];
+  }
+}
+
 export default IMailProvider;
     

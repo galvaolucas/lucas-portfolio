@@ -1,37 +1,46 @@
-import { Box, Heading, Button, Flex, Text  } from "@chakra-ui/react";
-import { BiMailSend } from 'react-icons/bi';
-import ContactForm from "../../components/ContactForm";
-
+import { Box, Heading, Button, Flex, Text, Grid, GridItem  } from "@chakra-ui/react";
+import { m } from "framer-motion";
+import gif_romeu from '../../../public/gif_romeu.gif';
+import github_logo from '../../../public/github_logo.png';
+import { ProjectsCard } from "../../components/ProjectsCard";
 export function Projects() {
+  const cards = [
+    {
+      title: 'Rome.u',
+      description: 'Expense control application',
+      file: gif_romeu,
+      link: 'https://rome-u.netlify.app',
+      technologies: [
+        'Typescript',
+        'ReactJS',
+        'NodeJS',
+        'Chakra UI',
+        'MongoDB',
+        'AWS'
+      ]
+    },
+    {
+      title: 'POC - Google Drive',
+      description: 'Code for importing google drive files in your application',
+      file: github_logo,
+      link: 'https://github.com/galvaolucas/poc-googledrive',
+      technologies: [
+        'Typescript'
+      ]
+    },
+  ]
   return(
-    <Flex
-      w="100%"
-      h="900px"
-      direction="column"
-      align='center'
+    <Grid
+      h='100%'
+      templateColumns='repeat(3, 1fr)'
+      mb='1rem'
+      gap='2rem'
+      margin='3rem'
     >
-      <Box h={12} display="flex" justifyContent="left" alignItems="center" mt={8} mb={8} >
-        <Heading fontWeight={600} color="gray.700"fontSize="3xl">Entre em Contato</Heading>
-      </Box> 
-      <Flex
-        direction="column"
-        w="40%"
-        h="55%"
-        p="15px"
-        justifyContent="start"
-        border="1px solid"
-        borderColor="teal.500"
-        borderRadius="20px"
-        boxShadow="2px"
-        gap="15px"
-        >
-        <Flex w="100%" gap={2} align="center" justifyContent="center">
-          <Heading fontSize="18px" color="teal.500">Insira seus dados e me envie um e-mail!</Heading>
-          <BiMailSend size={24} />
-        </Flex>
-        <ContactForm />
-      </Flex>
-    </Flex>    
+      {cards.map((card, index) => (
+        <ProjectsCard key={index} card={card} />
+      ))}
+    </Grid>    
   )
 }
 

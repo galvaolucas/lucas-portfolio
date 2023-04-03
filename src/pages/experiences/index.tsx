@@ -1,4 +1,4 @@
-import { Box, Flex, Text  } from "@chakra-ui/react";
+import { Box, Flex, Image, Text  } from "@chakra-ui/react";
 import cv01 from '../../../public/cv_01.jpg';
 import cv02 from '../../../public/cv_02.jpg';
 import { Carousel } from "../../components/Carousel";

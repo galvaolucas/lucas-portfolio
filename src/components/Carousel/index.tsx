@@ -13,55 +13,55 @@ export const Carousel = ({ renderImages }: CarouselProps): React.ReactElement =>
 
     return (
         <Flex
-         w='100%'
-         h='100%'
-				 border='1px solid black'
+					w='100%'
+					h='100%'
+					border='1px solid black'
         >
-            <Button
-                backgroundColor='white'
-                color='black'
-                _hover={{
-									backgroundColor: 'none'
-                }}
-                position='absolute'
-                zIndex={1}
-                top={265}
-                left={270}
-                onClick={() => {}}
-            >
-                <FiDownload 
-                    size={20} 
-                />
-            </Button>
-            <Image src={renderImages[page].image} alt='resume'/>
-            <Box
-                position='absolute'
-                bottom='130px'
-                left='500px'
-                zIndex={0}
-            >
-                <HStack>
-                {renderImages.map((image, index) => {
-                return (
-                    <Button 
-                        key={index} 
-                        bgColor='white'
-                        boxShadow='none'
-                        _hover={{
-                            cursor: 'pointer',
-                            backgroundColor: 'none',
-                            svg: {
-                                color: 'teal',
-                            }
-                        }}
-                        onClick={() => setPage(index)}
-                    >
-                        <TbPoint key={index} size={20}  />
-                    </Button>
-                )
-            })}
-                </HStack>
-            </Box>
+					<Button
+						backgroundColor='white'
+						color='black'
+						_hover={{
+							backgroundColor: 'none'
+						}}
+						position='absolute'
+						zIndex={1}
+						top={265}
+						left={270}
+						onClick={() => {}}
+					>
+						<FiDownload 
+							size={20} 
+						/>
+					</Button>
+					<Image src={renderImages[page].image} alt='resume' />
+					<Box
+						position='absolute'
+						bottom='130px'
+						left='500px'
+						zIndex={0}
+					>
+						<HStack>
+						{renderImages.map((image, index) => {
+						return (
+								<Button 
+									key={index} 
+									bgColor='white'
+									boxShadow='none'
+									_hover={{
+										cursor: 'pointer',
+										backgroundColor: 'none',
+										svg: {
+											color: 'teal',
+										}
+									}}
+									onClick={() => setPage(index)}
+								>
+									<TbPoint key={index} size={20}  />
+								</Button>
+						)
+					})}
+						</HStack>
+					</Box>
         </Flex>
     );
 }

@@ -1,8 +1,5 @@
 import NextLink from 'next/link';
-import Image from 'next/image';
-import logo from '../../../public/lucas-galvao.png';
-import memoji from '../../../public/lucas_memoji.png';
-import { Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Link, useDisclosure } from '@chakra-ui/react'
+import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Link, useDisclosure } from '@chakra-ui/react'
 import { Button, Flex } from '@chakra-ui/react';
 import { FiUser, FiAward, FiGitMerge, FiBriefcase } from 'react-icons/fi';
 import { IoOptionsOutline } from 'react-icons/io5';
@@ -32,25 +29,10 @@ export function Header() {
             colorScheme="white"
             _hover={{
               background: "white",
-              color: "teal.500"
+              color: "teal.500",
             }}
             variant="solid">
-          About Me
-          </Button>
-        </Link>
-        <Link as={NextLink} href='/technologies'>
-          <Button
-              p='1rem'
-              leftIcon={<FiGitMerge/>}
-              size="xl"
-              color="white"
-              _hover={{
-                background: "white",
-                color: "teal.500"
-              }}
-              colorScheme="purple.200"
-              >
-            Technologies
+            About Me
           </Button>
         </Link>
         <Link as={NextLink} href='/experiences' >
@@ -61,10 +43,10 @@ export function Header() {
             color="white"
             _hover={{
               background: "white",
-              color: "teal.500"
+              color: "teal.500",
             }}
             colorScheme="purple.200">
-          Professional Experiences
+            Professional Experiences
           </Button>
         </Link>
         <Link as={NextLink} href='/projects' >
@@ -78,7 +60,7 @@ export function Header() {
               color: "teal.500"
             }}
             colorScheme="purple.200">
-          Projects
+            Projects
           </Button>
         </Link>
         <Link as={NextLink} href='/contact'>
@@ -92,7 +74,7 @@ export function Header() {
             }}
             size="xl"
             colorScheme="white">
-          Contact Me
+            Contact Me
           </Button>
         </Link>
       </Flex>
@@ -125,17 +107,7 @@ export function Header() {
                   color="white"
                   backgroundColor='teal.400'
                   variant="solid">
-                About me
-                </Button>
-              </Link>
-              <Link as={NextLink} href='/technologies'>
-                <Button
-                    leftIcon={<FiGitMerge/>}
-                    size="sm"
-                    color="white"
-                    backgroundColor='teal.400'
-                    >
-                  Technologies
+                  About me
                 </Button>
               </Link>
               <Link as={NextLink} href='/experiences' >
@@ -144,7 +116,7 @@ export function Header() {
                   size="sm"
                   color="white"
                   backgroundColor='teal.400'>
-                Professional Experiences
+                  Professional Experiences
                 </Button>
               </Link>
               <Link as={NextLink} href='/projects' >
@@ -153,7 +125,7 @@ export function Header() {
                   size="sm"
                   color="white"
                   backgroundColor='teal.400'>
-                Projects
+                  Projects
                 </Button>
               </Link>
               <Link as={NextLink} href='/contact'>
@@ -162,7 +134,7 @@ export function Header() {
                   color="white"
                   size="sm"
                   backgroundColor='teal.400'>
-                Contact me
+                  Contact me
                 </Button>
               </Link>
             </Flex>

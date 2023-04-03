@@ -35,6 +35,11 @@ export const theme = extendTheme({
                 }
             }
         },
+        Link: {
+            baseStyle: {
+                textDecoration: 'none !important',
+            }
+        }
     },
     breakpoints: {
         sm: '20em', // 480px
