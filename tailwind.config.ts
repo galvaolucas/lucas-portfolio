@@ -12,8 +12,10 @@ const config: Config = {
       gray: '#403F4C',
       'light-black': '#2C2B3C',
       'dark-gray': '#1B2432',
+      'dark-black': '#0F100D',
       red: '#B76D68',
-      'light': '#F9F7F3'
+      'light': '#F9F7F3',
+      purple: '#7F77EA'
     },
     screens: {
       sm: '480px',
@@ -30,6 +32,16 @@ const config: Config = {
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif']
       },
+      spacing: {
+        '128': '32rem',
+      },
+      fontSize: {
+        sm: '12px',
+        base: '14px',
+        md: '16px',
+        lg: '18px',
+        xl: '20px'
+      }
     },
   },
   plugins: [],

@@ -1,23 +1,17 @@
-import { Input } from "../components/input/input";
-import { FaUserAstronaut } from "react-icons/fa";
-import { RiLockPasswordLine } from "react-icons/ri";
 import Image from 'next/image';
+import { Login } from './login';
 
-const Login = (): React.ReactElement => {
+const Page = (): React.ReactElement => {
   return (
-    <div>
-      <div className="flex">
-        <div>
-          <Image width={400} height={400} src='/images/cover.png' alt='cover' />
+    <div className="h-full">
+      <div className="flex h-full items-center">
+        <div className="hidden lg:flex w-1/2 h-screen relative flex-col items-center border-r border-light">
+          <Image fill src='/images/cover.jpg' alt='cover-image' />
         </div>
-        <div className="flex flex-col gap-4">
-          <Input placeholder="Usuário" icon={<FaUserAstronaut className="text-dark-gray"/>} />
-          <Input placeholder="Senha" icon={<RiLockPasswordLine className="text-dark-gray"/>} />
-        </div>
+        <Login />
       </div>
-      <div className="text-light">Image by storyset on Freepik</div>
     </div>
   );
 };
 
-export default Login;
+export default Page;

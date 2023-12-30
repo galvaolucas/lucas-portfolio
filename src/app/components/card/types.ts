@@ -1,4 +1,6 @@
 
 export interface ICard {
-  backgroundColor:  string
+  backgroundColor?: string
+  className?: string
+  children: React.ReactElement
 }
