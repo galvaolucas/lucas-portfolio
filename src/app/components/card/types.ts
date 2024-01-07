@@ -1,4 +1,3 @@
-
 export interface ICard {
   backgroundColor?: string
   className?: string

@@ -13,9 +13,10 @@ const config: Config = {
       'light-black': '#2C2B3C',
       'dark-gray': '#1B2432',
       'dark-black': '#0F100D',
-      red: '#B76D68',
-      'light': '#F9F7F3',
-      purple: '#7F77EA'
+      'red-light': '#B76D68',
+      red: '#A01D1E',
+      light: '#F9F7F3',
+      purple: '#7F77EA',
     },
     screens: {
       sm: '480px',
@@ -30,7 +31,7 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        'montserrat': ['Montserrat', 'sans-serif']
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       spacing: {
         '128': '32rem',
@@ -40,8 +41,8 @@ const config: Config = {
         base: '14px',
         md: '16px',
         lg: '18px',
-        xl: '20px'
-      }
+        xl: '20px',
+      },
     },
   },
   plugins: [],

@@ -11,3 +11,18 @@ html {
   padding: 0;
   margin: 0;
 }
+
+input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active  {
+    color : #F9F7F3 !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #F9F7F3 !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+
+.Toastify__toast-container {
+  border-radius: 20px;
+}

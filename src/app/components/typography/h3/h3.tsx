@@ -2,14 +2,14 @@ import clsx from 'clsx';
 import { ITypography } from '../types';
 import { twMerge } from 'tailwind-merge';
 
-export const H2 = ({
+export const H3 = ({
   children,
   textColor = 'text-light-black',
   className,
 }: ITypography): React.ReactElement => {
   return (
-    <h2 className={twMerge(clsx('text-lg font-bold', textColor, className))}>
+    <h3 className={twMerge(clsx('text-base font-bold', textColor, className))}>
       {children}
-    </h2>
+    </h3>
   );
 };
