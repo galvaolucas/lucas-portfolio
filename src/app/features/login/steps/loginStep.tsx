@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { LoginContext } from '@/app/contexts/loginContext';
 import { UserContext } from '@/app/contexts/userContext';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { useLocalStorage } from '@/app/hooks/useLocalStorage';
 import { useRouter } from 'next/navigation';
 import { LoginRestClient } from '@/app/api/login';
 

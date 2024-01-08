@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 import { IButton } from './types';
 import clsx from 'clsx';
+import { ButtonVariants } from './styles';
 
 export const Button = ({
   label,
@@ -8,13 +9,16 @@ export const Button = ({
   disabled,
   className,
   type = 'button',
+  variant = 'outlined',
 }: IButton): React.ReactElement => {
+  const buttonStyle = ButtonVariants[variant];
   return (
     <button
       type={type}
       className={twMerge(
         clsx(
-          'w-36 md:w-full text-sm md:text-md p-2 font-semibold transition hover:duration-500 rounded-md border border-light text-light bg-dark-black hover:bg-light hover:text-dark-black cursor-pointer',
+          'w-36 md:w-full text-sm md:text-base p-2 font-semibold transition hover:duration-500 rounded-md cursor-pointer',
+          buttonStyle,
           className,
         ),
       )}

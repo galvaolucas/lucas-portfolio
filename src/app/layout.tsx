@@ -1,5 +1,5 @@
 "use client";
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/app/hooks/useAuth';
 import './globals.css';
 import { AuthContext } from './contexts/authContext';
 

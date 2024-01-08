@@ -4,4 +4,5 @@ export interface IButton {
   disabled?: boolean;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
+  variant?: 'outlined' | 'filled';
 }

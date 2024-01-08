@@ -1,3 +1,13 @@
-import ProtectedLayout from '@/layouts/protectedLayout';
+import ProtectedLayout from '@/app/layouts/protectedLayout';
 
-export default ProtectedLayout;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <ProtectedLayout>
+      {children}
+    </ProtectedLayout>
+  );
+}

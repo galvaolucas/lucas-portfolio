@@ -4,7 +4,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 interface ILoginContext {
   step: IStepOptions
   setStep: Dispatch<
-    SetStateAction<'login' | 'main' | 'forgetPassword' | 'createAccount'>
+    SetStateAction<IStepOptions>
   >
 }
 
