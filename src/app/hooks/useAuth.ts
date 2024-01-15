@@ -31,7 +31,9 @@ export const useAuth = () => {
     const isValid = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/login?token=${token}`, {
       method: 'POST',
     });
-    if (!isValid.ok) throw new Error('Erro ao validar o token.');
+    if (!isValid.ok) {
+      router.push('/');
+    };
     const response = await isValid.json();
     if (!response.valid) {
       router.push('/');

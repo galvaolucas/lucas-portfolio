@@ -1,5 +1,5 @@
 import { H1 } from '@/app/components/typography/h1/h1';
-import { Input } from '@/app/components/input/input';
+import { Input } from '@/app/components/input/default/input';
 import { FaUserAstronaut } from 'react-icons/fa';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { Button } from '@/app/components/button/button';
@@ -44,7 +44,7 @@ export const CreateAccountStep = (): React.ReactElement => {
   return (
     <form onSubmit={handleSubmit(createUser)}>
       <Toast>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 w-96">
           <H1 textColor="text-light">Cadastre-se</H1>
           <Input
             type="email"

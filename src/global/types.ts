@@ -29,6 +29,6 @@ const SidebarAreaOptions = [
 export type ISidebarAreaOptions = (typeof SidebarAreaOptions)[number];
 
 export interface ISidebarProps {
-  area: ISidebarAreaOptions;
-  setArea: (area: ISidebarAreaOptions) => void;
+  area?: ISidebarAreaOptions;
+  setArea?: (area: ISidebarAreaOptions) => void;
 }
