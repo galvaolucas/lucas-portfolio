@@ -32,3 +32,14 @@ export interface ISidebarProps {
   area?: ISidebarAreaOptions;
   setArea?: (area: ISidebarAreaOptions) => void;
 }
+
+export interface IExperience {
+  id?: string;
+  role: string;
+  attributions: string;
+  technologies: string[];
+  startDate: string;
+  endDate?: string;
+  currentJob: boolean;
+  userId: string;
+}

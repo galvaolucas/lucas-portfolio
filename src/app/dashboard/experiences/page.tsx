@@ -5,10 +5,19 @@ import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { useUser } from "@/app/hooks/useUser";
 import { ProfessionalExperiencesModal } from "@/app/features/professionalExperiences/modal/professionalExperiencesModal";
+import { useQuery } from "@tanstack/react-query";
+import { ExperienceRestClient } from "@/app/api/experience";
 
 const Page = (): React.ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
-  const user = useUser();
+  const experienceRestClient = new ExperienceRestClient();
+  const { user } = useUser();
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ['experienceslist'],
+    queryFn: async () => {
+      if (user) return await experienceRestClient.getExperiencesByUserId(user?.id)
+    },
+  }) 
   const { register, control, handleSubmit, reset, trigger, setError } = useForm({
     // defaultValues: {}; you can populate the fields by this attribute 
   });
