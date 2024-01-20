@@ -1,9 +1,9 @@
 import { IAuthUser, IUser } from "@/global/types";
 import * as jwt from "jsonwebtoken";
+import router from "next/router";
 
 interface ILoginRestClient {
-  // eslint-disable-next-line no-unused-vars
-  signIn: (user: Partial<IUser>) => Promise<IAuthUser | undefined>;
+  signIn: (user: Partial<IUser>) => Promise<{ access_token: string} | undefined>;
 }
 
 export class LoginRestClient implements ILoginRestClient {
@@ -12,25 +12,27 @@ export class LoginRestClient implements ILoginRestClient {
     this.baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
   }
 
-  signIn = async (user: Partial<IUser>): Promise<IAuthUser | undefined> => {
+  signIn = async (user: Partial<IUser>): Promise<{ access_token: string} | undefined> => {
     try {
-      const userData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify(user),
       });
-      if (!userData.ok) throw new Error('Ocorreu um erro durante o login.');
-      return userData.json();
+      if (!response.ok) throw new Error('Ocorreu um erro durante o login.');
+      return await response.json();
     } catch (err) {
       console.error(`error: ${err}`);
     }
   };
 
-  verifyToken = async (token: string): Promise<boolean> => {
-    const decode = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_PUBLIC_KEY ?? '');
-      if (decode) {
-        return true;
-      }
-      return false;
+  validateTokenAndReturnUserData = async (token: string): Promise<IAuthUser> => {
+    const user = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/login?token=${token}`, {
+      method: 'POST',
+    });
+    if (!user?.ok) {
+      router.push('/');
+    };
+    return await user.json();
   }
 }

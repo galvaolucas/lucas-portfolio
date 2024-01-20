@@ -32,7 +32,6 @@ export class ExperienceRestClient implements IExperienceRestClient {
     userId: string,
   ): Promise<any> => {
     try {
-      console.log('funca', userId)
       if (userId) {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/experience/user/${userId}`, {
           method: 'GET',

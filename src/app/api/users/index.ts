@@ -1,7 +1,6 @@
 import { IUser } from '@/global/types';
 
 interface IUserRestClient {
-  // eslint-disable-next-line no-unused-vars
   createUser: (user: IUser) => Promise<void>;
 }
 

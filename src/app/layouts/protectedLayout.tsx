@@ -3,6 +3,8 @@ import { useLayoutEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
 import { UserContext } from '../contexts/userContext';
 import { IAuthUser } from '@/global/types';
+import { AuthContext } from '../contexts/authContext';
+import { useAuth } from '../hooks/useAuth';
 
 export default function ProtectedLayout({
   children,
@@ -10,6 +12,8 @@ export default function ProtectedLayout({
   children: React.ReactNode;
 }) {
   const [user, setUser] = useState<IAuthUser | undefined>(undefined);
+  const { login, logout } = useAuth();
+
   useLayoutEffect(() => {
     const user = localStorage.getItem('user');
     if(!user){
@@ -18,10 +22,12 @@ export default function ProtectedLayout({
     setUser(JSON.parse(user));
   }, [])
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
+      <UserContext.Provider value={{ user, setUser }}>
       <div className='w-full h-full'>
         {children}
       </div>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </AuthContext.Provider>
   );
 }

@@ -1,5 +1,6 @@
 export interface IUser {
   id: string;
+  sub?: string;
   email: string;
   username: string;
   password: string;
@@ -36,6 +37,7 @@ export interface ISidebarProps {
 export interface IExperience {
   id?: string;
   role: string;
+  company: string;
   attributions: string;
   technologies: string[];
   startDate: string;

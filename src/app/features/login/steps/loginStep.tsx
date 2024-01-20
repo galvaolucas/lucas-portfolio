@@ -10,22 +10,24 @@ import { UserContext } from '@/app/contexts/userContext';
 import { useLocalStorage } from '@/app/hooks/useLocalStorage';
 import { useRouter } from 'next/navigation';
 import { LoginRestClient } from '@/app/api/login';
+import { useAuth } from '@/app/hooks/useAuth';
 
 export const LoginStep = (): React.ReactElement => {
   const { handleSubmit, getValues, register, formState: { errors } } = useForm();
   const loginContext = useContext(LoginContext);
   const userContext = useContext(UserContext);
   const loginRestClient = new LoginRestClient();
-  const localStorage = useLocalStorage();
+  const auth = useAuth();
   const router = useRouter();
 
   const login = async (): Promise<void> => {
     const formData = getValues();
     try {
-      const loginData = await loginRestClient.signIn(formData);
-      if (loginData) {
-        userContext?.setUser(loginData);
-        localStorage.setItem('user', JSON.stringify(loginData));
+      const credentials = await loginRestClient.signIn(formData);
+      if (credentials) {
+        const user = await loginRestClient.validateTokenAndReturnUserData(credentials.access_token);
+        auth.login(user);
+        userContext?.setUser(user);
         router.push('/dashboard');
       }
     } catch (error) {
