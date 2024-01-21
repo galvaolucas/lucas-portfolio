@@ -1,3 +1,4 @@
+"use client";
 import { Card } from "@/app/components/card/card";
 import { Container } from "@/app/components/container/container";
 import { Input } from "@/app/components/input/default/input";
@@ -5,14 +6,24 @@ import { LimitedTextInput } from "@/app/components/input/limitedTextInput/limite
 import { SearchInput } from "@/app/components/input/selectInput/searchInput";
 import { H2 } from "@/app/components/typography/h2/h2";
 import { H3 } from "@/app/components/typography/h3/h3";
-import { useUser } from "@/app/hooks/useUser"
 import { professionRoleOptions } from "@/global/constants";
 import { useForm } from "react-hook-form";
 import { Address } from "../address/address";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
+import { UserContext } from "@/app/contexts/userContext";
 
 export const PersonalData = (): React.ReactElement => {
-  const { user } = useUser();
+  const userContext = useContext(UserContext);
   const { register, formState: { errors }} = useForm();
+  const { data, isFetching, refetch } = useQuery({
+    queryKey: ['experienceslist'],
+    queryFn: async () => {
+      if (userContext?.user) {
+      }
+    },
+    enabled: !!userContext?.user?.id,
+  }); 
   return (
     <Container>
       <form className="flex h-full flex-col gap-4">

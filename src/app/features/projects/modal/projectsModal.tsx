@@ -11,10 +11,8 @@ import { Button } from "@/app/components/button/button";
 import { parseDate } from "@/utils/parsers";
 import { messages } from "@/utils/messages";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { ExperienceRestClient } from "@/app/api/experience";
-import { IExperience } from "@/global/types";
 
-export const ProfessionalExperiencesModal = ({ open, onClose, experienceEditData, user, refetchList, setExperienceData }: IProfessionalExperiencesModal): React.ReactElement => {
+export const ProjectsModal = ({ open, onClose, experienceEditData, user, refetchList, setExperienceData }: IProfessionalExperiencesModal): React.ReactElement => {
   const [actualJob, setActualJob] = useState<boolean>(experienceEditData?.currentJob ?? false);
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -23,7 +21,6 @@ export const ProfessionalExperiencesModal = ({ open, onClose, experienceEditData
     },
   })
   const form = useForm();
-  const experienceRestClient = new ExperienceRestClient();
 
   useEffect(() => {
     if (experienceEditData) {
@@ -42,17 +39,23 @@ export const ProfessionalExperiencesModal = ({ open, onClose, experienceEditData
 
   const handleExperiences = async (values: FieldValues) => {
     try {
-      let response;
+      let data;
+      console.log('user', user);
+      console.log('data', values);
+
       if (user) {
-        const body = {
-          data: values as IExperience,
-          userId: user.id
+        data = {
+          ...values,
+          user: user.id
         }
-        if (experienceEditData) {
-          response = await experienceRestClient.updateExperience(body);
-        } else {
-          response = await experienceRestClient.createExperience(body);
-        }
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/experience/${experienceEditData ? experienceEditData._id : ''}`, {
+          method: experienceEditData ? 'PUT' : 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`,
+          }
+        })
         if (!response.ok) {
           throw new Error(`Erro durante o cadastro da experiência: ${response.statusText}`);
         } 

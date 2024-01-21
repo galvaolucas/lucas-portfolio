@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { ISearchInput } from "../types";
 import clsx from "clsx";
+import { useFormContext } from "react-hook-form";
 
 export const SearchInput = ({
   placeholder,
@@ -12,12 +13,14 @@ export const SearchInput = ({
   errors,
   errorMessage,
   searchOptions,
-  className
+  className,
+  loadedOptions,
 }: ISearchInput): React.ReactElement => {
-  const [options, setOptions] = useState<string[]>([]);
+  const [options, setOptions] = useState<string[]>(loadedOptions ?? []);
   const [selected, setSelected] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
   const listRef = useRef<HTMLDivElement>(null);
+  const form = useFormContext();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -33,6 +36,12 @@ export const SearchInput = ({
     };
   }, []);
 
+  useEffect(() => {
+    if (options?.length > 0) {
+      form.setValue(formProperty, [...options], { shouldDirty: true });
+    }
+  }, [options]);
+
   return (
     <div className={clsx("flex w-full flex-col gap-2", className)}>
       <div 
@@ -41,6 +50,7 @@ export const SearchInput = ({
         {icon}
         <input
           id={`input-${formProperty}`}
+          autoComplete="off"
           list={formProperty}
           type='search'
           placeholder={required ? `${placeholder} *` : placeholder}
@@ -49,7 +59,6 @@ export const SearchInput = ({
           onSelect={() => setSelected(true)}
           value={value}
           onChange={(e) => { 
-            if (value === '') return;
             setValue(e.target.value)
           }}
         />
@@ -58,7 +67,7 @@ export const SearchInput = ({
             ref={listRef}
             className="absolute top-10 rounded-md bg-gray w-full h-36 overflow-y-scroll"
           >
-            <ul className="text-light">
+            <ul className="text-light h-fit">
               {searchOptions.map((option, index) => {
                 if (option.includes(value)) {
                   return (
@@ -69,6 +78,7 @@ export const SearchInput = ({
                         if (searchOptions.find(item => item === e.currentTarget.innerText) && !options.find(item => item === e.currentTarget.innerText)) {
                           setSelected(false)
                           setOptions([...options, e.currentTarget.innerText])
+                          setValue('')
                         }
                       }}>{option}</li>
                   )
@@ -83,7 +93,9 @@ export const SearchInput = ({
         {options.map((option, index) => (
           <div key={index} className="h-fit flex flex-row items-center gap-2 border border-light rounded-lg p-2 bg-gray text-sm">
             <span className="text-light w-max">{option}</span>
-            <MdOutlineClose className='text-light cursor-pointer' onClick={() => setOptions(options.filter(item => item !== option))} />
+            <MdOutlineClose className='text-light cursor-pointer' onClick={() => {
+              setOptions(options.filter(item => item !== option))
+            }} />
           </div>
         ))}
       </div>

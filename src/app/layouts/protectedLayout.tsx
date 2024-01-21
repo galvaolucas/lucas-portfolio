@@ -20,13 +20,14 @@ export default function ProtectedLayout({
       redirect("/")
     }
     setUser(JSON.parse(user));
-  }, [])
+  }, []);
+  
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
       <UserContext.Provider value={{ user, setUser }}>
-      <div className='w-full h-full'>
-        {children}
-      </div>
+        <div className='w-full h-full'>
+          {children}
+        </div>
       </UserContext.Provider>
     </AuthContext.Provider>
   );

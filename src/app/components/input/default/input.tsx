@@ -22,7 +22,7 @@ export const Input = ({
             {icon}
             <input
               {...register(formProperty, { required })}
-              type={type === 'date' ? 'text' : type}
+              type={type}
               placeholder={required ? `${placeholder} *` : placeholder}
               className="bg-light-black text-light w-full"
               onBlur={(e) => {

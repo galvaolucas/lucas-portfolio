@@ -35,13 +35,27 @@ export interface ISidebarProps {
 }
 
 export interface IExperience {
-  id?: string;
+  _id?: string;
   role: string;
   company: string;
   attributions: string;
   technologies: string[];
   startDate: string;
-  endDate?: string;
+  endDate: string;
   currentJob: boolean;
-  userId: string;
+  user: string | IAuthUser;
+}
+
+export interface IProjects {
+  _id?: string;
+  images: string[];
+  description: string;
+  technologies: string[];
+  link: string;
+  user: string | IAuthUser;
+}
+
+export interface IExperienceListItemProps {
+  children: React.ReactNode | React.ReactElement;
+  onClick?: () => void;
 }

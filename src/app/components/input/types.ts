@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import { Control, ControllerProps, FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface IBaseInput {
   formProperty: string;
@@ -11,6 +11,7 @@ interface IBaseInput {
   errors?: FieldErrors<FieldValues>;
   errorMessage?: string;
   className?: string
+  loadedOptions?: string[];
 }
 
 export interface IInput extends IBaseInput {

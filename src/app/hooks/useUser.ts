@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { IAuthUser } from "@/global/types";
-import { set } from "react-hook-form";
 
 export const useUser = () => {
   const [user, setUser] = useState<IAuthUser | undefined>(undefined);

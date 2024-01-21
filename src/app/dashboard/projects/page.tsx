@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import { ExperienceRestClient } from "@/app/api/experience";
 import { ExperiencesList } from "@/app/features/professionalExperiences/experiencesList/experiencesList";
 import { UserContext } from "@/app/contexts/userContext";
+import { ProjectsModal } from "@/app/features/projects/modal/projectsModal";
+import { ProjectsList } from "@/app/features/projects/projectsList/projectsList";
 
 const Page = (): React.ReactElement => {
   const userContext = useContext(UserContext);
@@ -27,7 +29,7 @@ const Page = (): React.ReactElement => {
     return (
       <div className="w-full flex justify-end">
         <div className="w-1/6">
-          <Button label='Cadastrar Experiência' onClick={toggleModal}/>
+          <Button label='Cadastrar Projeto' onClick={toggleModal} />
         </div>
       </div>
     );
@@ -35,9 +37,9 @@ const Page = (): React.ReactElement => {
   return (
     <Container>
       <>
-        <ProfessionalExperiencesModal open={open} onClose={toggleModal} user={userContext?.user} refetchList={refetch} />
+        <ProjectsModal open={open} onClose={toggleModal} user={userContext?.user} refetchList={refetch} />
         <Header />
-        {isFetching ? <>Loading...</> : <ExperiencesList experiences={data} />}
+        {isFetching ? <>Loading...</> : <ProjectsList projects={data} />}
       </>
     </Container>
   )

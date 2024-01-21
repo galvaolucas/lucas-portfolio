@@ -1,12 +1,12 @@
-import { IExperience, IExperienceListItemProps } from "@/global/types";
+import { IExperience, IExperienceListItemProps, IProjects } from "@/global/types";
 import { parseDate } from "@/utils/parsers";
 import { MdModeEditOutline } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { ProfessionalExperiencesModal } from "../modal/professionalExperiencesModal";
+import { ProjectsModal } from "../modal/projectsModal";
 import { useContext, useState } from "react";
 import { UserContext } from "@/app/contexts/userContext";
 
-export const ExperiencesList = ({ experiences }: { experiences: IExperience[] }): React.ReactElement => {
+export const ProjectsList = ({ projects }: { projects: IProjects[] }): React.ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
   const [experience, setExperience] = useState<IExperience>({} as IExperience);
   const userContext = useContext(UserContext);
@@ -15,12 +15,12 @@ export const ExperiencesList = ({ experiences }: { experiences: IExperience[] })
     setOpen(!open)
   };
 
-  if (experiences) {
+  if (projects) {
     return (
       <>
-      {experience && <ProfessionalExperiencesModal user={userContext?.user} open={open} onClose={toggleModal} experienceEditData={experience} setExperienceData={setExperience} />}
+      {experience && <ProjectsModal user={userContext?.user} open={open} onClose={toggleModal} experienceEditData={experience} setExperienceData={setExperience} />}
       <div className="space-y-5 mt-8">
-        {experiences.map((experience: IExperience, index: number) => {
+        {projects.map((project: IProjects, index: number) => {
           return (
             <ListItem key={`experiencesListItem-${index}`} >
               <div className="flex flex-row justify-between items-center">
