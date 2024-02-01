@@ -46,11 +46,11 @@ export interface IExperience {
   user: string | IAuthUser;
 }
 
-export interface IProjects {
+export interface IProject {
   _id?: string;
   images: string[];
   description: string;
-  technologies: string[];
+  title: string;
   link: string;
   user: string | IAuthUser;
 }
@@ -58,4 +58,27 @@ export interface IProjects {
 export interface IExperienceListItemProps {
   children: React.ReactNode | React.ReactElement;
   onClick?: () => void;
+}
+
+export interface IPersonalData {
+  _id?: string;
+  about: string;
+  address: IAddress;
+  mainRole: string;
+  secondaryRole: string[];
+  github: string;
+  linkedin: string;
+  whatsapp: string;
+  user: string | IAuthUser;
+}
+
+interface IAddress {
+  _id?: string;
+  cep: string;
+  street: string;
+  number: string;
+  addOn: string;
+  neighborhood: string;
+  city: string;
+  state: string;
 }

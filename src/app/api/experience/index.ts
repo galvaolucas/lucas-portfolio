@@ -1,5 +1,5 @@
 import { IExperience, IUser } from '@/global/types';
-import { setHeaders } from '@/utils/headers';
+import { setHeaders } from '@/utils/setHeaders';
 
 interface IExperienceRestClient {
   createExperience: ({data, userId}:IExperienceProps) => Promise<any>;

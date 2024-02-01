@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest } from "next";
 import * as jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { IAuthUser } from "@/global/types";

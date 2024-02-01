@@ -1,20 +1,19 @@
-import { IPersonalData } from "@/global/types";
+import { IProject } from "@/global/types";
 import { setHeaders } from "@/utils/setHeaders";
-import router from "next/router";
 
-interface IPersonalDataRestClient {
-  create: (user: IPersonalData) => Promise<IPersonalData | undefined>;
+interface IProjectRestClient {
+  create: (project: IProject) => Promise<IProject | undefined>;
 }
 
-export class PersonalDataRestClient implements IPersonalDataRestClient {
+export class ProjectRestClient implements IProjectRestClient {
   baseUrl: string;
   constructor() {
     this.baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
   }
 
-  create = async (data: IPersonalData): Promise<IPersonalData | undefined> => {
+  create = async (data: IProject): Promise<IProject | undefined> => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/personalData`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects`, {
         method: 'POST',
         headers: setHeaders(),
         body: JSON.stringify(data),
@@ -26,9 +25,9 @@ export class PersonalDataRestClient implements IPersonalDataRestClient {
     }
   };
 
-  update = async (data: IPersonalData): Promise<IPersonalData | undefined> => {
+  update = async (data: IProject): Promise<IProject | undefined> => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/personalData/${data._id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects/${data._id}`, {
         method: 'PUT',
         headers: setHeaders(),
         body: JSON.stringify(data),
@@ -40,8 +39,8 @@ export class PersonalDataRestClient implements IPersonalDataRestClient {
     }
   };
 
-  getPersonalDataByUserId = async (userId: string): Promise<IPersonalData> => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/personalData/${userId}`, {
+  getProjectsByUserId = async (userId: string): Promise<IProject[]> => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects/${userId}`, {
       method: 'GET',
       headers: setHeaders(),
     });

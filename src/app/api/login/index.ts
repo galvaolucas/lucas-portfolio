@@ -1,5 +1,4 @@
 import { IAuthUser, IUser } from "@/global/types";
-import * as jwt from "jsonwebtoken";
 import router from "next/router";
 
 interface ILoginRestClient {

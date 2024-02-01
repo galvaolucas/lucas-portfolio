@@ -1,18 +1,19 @@
 import { Input } from "@/app/components/input/default/input"
-import { set, useForm } from "react-hook-form";
+import { messages } from "@/utils/messages";
+import { useForm, useFormContext } from "react-hook-form";
 
 export const Address = (): React.ReactElement => {
-  const { setValue, register, formState: { errors }} = useForm();
+  const form = useFormContext();
   const viaCepRequest = async (cep: string): Promise<void> => {
     try {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const data = await response.json();
       if (data) {
-        setValue('endereco.logradouro', data.logradouro);
-        setValue('endereco.bairro', data.bairro);
-        setValue('endereco.cidade', data.localidade);
-        setValue('endereco.uf', data.uf);
-        setValue('endereco.complemento', data.complemento);
+        form.setValue('address.street', data.logradouro);
+        form.setValue('address.neighborhood', data.bairro);
+        form.setValue('address.city', data.localidade);
+        form.setValue('address.state', data.uf);
+        form.setValue('address.addOn', data.complemento);
       }
     } catch (error) {
       console.error(`Erro durante consulta ao via cep: ${error}`)
@@ -21,17 +22,17 @@ export const Address = (): React.ReactElement => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex gap-2">
-        <Input placeholder="CEP" formProperty="endereco.cep" register={register} onBlur={(e) => viaCepRequest(e.target.value)} />
-        <Input className="w-full" placeholder="Logradouro" formProperty="endereco.logradouro" register={register} />
+        <Input placeholder="CEP" formProperty="address.cep" register={form.register} onBlur={(e) => viaCepRequest(e.target.value)} errors={form.formState.errors} required errorMessage={messages.fields.required} />
+        <Input className="w-full" placeholder="Logradouro" formProperty="address.street" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
       </div>
       <div className="flex gap-2">
-        <Input placeholder="Número" formProperty="endereco.numero" register={register} />
-        <Input className="w-full" placeholder="Complemento" formProperty="endereco.complemento" register={register} />
+        <Input placeholder="Número" formProperty="address.number" register={form.register} />
+        <Input className="w-full" placeholder="Complemento" formProperty="address.addOn" register={form.register} />
       </div>
       <div className="w-full flex flex-row gap-2 items-center justify-between">
-        <Input placeholder="Bairro" formProperty="endereco.bairro" register={register} />
-        <Input placeholder="Cidade" formProperty="endereco.cidade" register={register} />
-        <Input placeholder="Estado" formProperty="endereco.uf" register={register} />
+        <Input placeholder="Bairro" formProperty="address.neighborhood" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
+        <Input placeholder="Cidade" formProperty="address.city" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
+        <Input placeholder="Estado" formProperty="address.state" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
       </div>
     </div>
   )
