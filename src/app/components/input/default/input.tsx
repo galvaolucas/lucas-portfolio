@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 import { IInput } from '../types';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 export const Input = ({
   placeholder,

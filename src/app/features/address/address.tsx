@@ -1,6 +1,14 @@
-import { Input } from "@/app/components/input/default/input"
-import { messages } from "@/utils/messages";
-import { useForm, useFormContext } from "react-hook-form";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { messages } from '@/utils/messages';
+import { useForm, useFormContext } from 'react-hook-form';
 
 export const Address = (): React.ReactElement => {
   const form = useFormContext();
@@ -16,24 +24,81 @@ export const Address = (): React.ReactElement => {
         form.setValue('address.addOn', data.complemento);
       }
     } catch (error) {
-      console.error(`Erro durante consulta ao via cep: ${error}`)
+      console.error(`Erro durante consulta ao via cep: ${error}`);
     }
-  }
+  };
   return (
     <div className="flex flex-col gap-2">
       <div className="flex gap-2">
-        <Input placeholder="CEP" formProperty="address.cep" register={form.register} onBlur={(e) => viaCepRequest(e.target.value)} errors={form.formState.errors} required errorMessage={messages.fields.required} />
-        <Input className="w-full" placeholder="Logradouro" formProperty="address.street" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
+        <FormField
+          control={form.control}
+          name="address.cep"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>CEP</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="CEP"
+                  {...field}
+                  onBlur={(e) => viaCepRequest(e.target.value)}
+                />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Input
+          className="w-full"
+          placeholder="Logradouro"
+          formProperty="address.street"
+          register={form.register}
+          errors={form.formState.errors}
+          required
+          errorMessage={messages.fields.required}
+        />
       </div>
       <div className="flex gap-2">
-        <Input placeholder="Número" formProperty="address.number" register={form.register} />
-        <Input className="w-full" placeholder="Complemento" formProperty="address.addOn" register={form.register} />
+        <Input
+          placeholder="Número"
+          formProperty="address.number"
+          register={form.register}
+        />
+        <Input
+          className="w-full"
+          placeholder="Complemento"
+          formProperty="address.addOn"
+          register={form.register}
+        />
       </div>
       <div className="w-full flex flex-row gap-2 items-center justify-between">
-        <Input placeholder="Bairro" formProperty="address.neighborhood" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
-        <Input placeholder="Cidade" formProperty="address.city" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
-        <Input placeholder="Estado" formProperty="address.state" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
+        <Input
+          placeholder="Bairro"
+          formProperty="address.neighborhood"
+          register={form.register}
+          errors={form.formState.errors}
+          required
+          errorMessage={messages.fields.required}
+        />
+        <Input
+          placeholder="Cidade"
+          formProperty="address.city"
+          register={form.register}
+          errors={form.formState.errors}
+          required
+          errorMessage={messages.fields.required}
+        />
+        <Input
+          placeholder="Estado"
+          formProperty="address.state"
+          register={form.register}
+          errors={form.formState.errors}
+          required
+          errorMessage={messages.fields.required}
+        />
       </div>
     </div>
-  )
-}
+  );
+};

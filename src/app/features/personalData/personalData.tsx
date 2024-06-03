@@ -1,20 +1,27 @@
-"use client";
-import { Container } from "@/app/components/container/container";
-import { Input } from "@/app/components/input/default/input";
-import { LimitedTextInput } from "@/app/components/input/limitedTextInput/limitedTextInput";
-import { SearchInput } from "@/app/components/input/selectInput/searchInput";
-import { H2 } from "@/app/components/typography/h2/h2";
-import { H3 } from "@/app/components/typography/h3/h3";
-import { professionRoleOptions } from "@/global/constants";
-import { FieldValues, FormProvider, useForm } from "react-hook-form";
-import { Address } from "../address/address";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useContext, useEffect } from "react";
-import { UserContext } from "@/app/contexts/userContext";
-import { Button } from "@/app/components/button/button";
-import { PersonalDataRestClient } from "@/app/api/personalData";
-import { IPersonalData } from "@/global/types";
-import { messages } from "@/utils/messages";
+'use client';
+import { Container } from '@/app/components/container/container';
+import { SearchInput } from '@/app/components/input/selectInput/searchInput';
+import { H2 } from '@/app/components/typography/h2/h2';
+import { H3 } from '@/app/components/typography/h3/h3';
+import { professionRoleOptions } from '@/global/constants';
+import { FieldValues, FormProvider, useForm } from 'react-hook-form';
+import { Address } from '../address/address';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useContext, useEffect } from 'react';
+import { UserContext } from '@/app/contexts/userContext';
+import { Button } from '@/app/components/button/button';
+import { PersonalDataRestClient } from '@/app/api/personalData';
+import { IPersonalData } from '@/global/types';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
 export const PersonalData = (): React.ReactElement => {
   const personalDataRestClient = new PersonalDataRestClient();
@@ -24,7 +31,9 @@ export const PersonalData = (): React.ReactElement => {
     queryKey: ['personaldata'],
     queryFn: async () => {
       if (userContext?.user?.id) {
-        return await personalDataRestClient.getPersonalDataByUserId(userContext?.user?.id as string)
+        return await personalDataRestClient.getPersonalDataByUserId(
+          userContext?.user?.id as string,
+        );
       }
     },
     enabled: !!userContext?.user?.id,
@@ -33,7 +42,7 @@ export const PersonalData = (): React.ReactElement => {
     mutationFn: async (personalData: FieldValues): Promise<any> => {
       return await handlePersonalData(personalData);
     },
-  })
+  });
 
   useEffect(() => {
     if (data && Object.keys(data as {}).length > 0) {
@@ -55,13 +64,11 @@ export const PersonalData = (): React.ReactElement => {
       form.setValue('whatsapp', data.whatsapp);
     }
   }, [data]);
-  
+
   const form = useForm({ defaultValues: data as FieldValues });
 
   if (isFetching) {
-    return (
-      <>Loading...</>
-    )
+    return <>Loading...</>;
   }
 
   const handlePersonalData = async (values: FieldValues) => {
@@ -84,43 +91,133 @@ export const PersonalData = (): React.ReactElement => {
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   return (
     <FormProvider {...form}>
       <Container>
-        <form onSubmit={form.handleSubmit(async () => await mutation.mutateAsync(form.getValues()))}>
+        <form
+          onSubmit={form.handleSubmit(
+            async () => await mutation.mutateAsync(form.getValues()),
+          )}
+        >
           <div className="flex items-center justify-end">
             <div className="w-36">
-              <Button label='Salvar' type='submit' />
+              <Button label="Salvar" type="submit" />
             </div>
           </div>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col w-full gap-2">
               <H2 textColor="text-light">Dados Gerais</H2>
               <div className="w-full">
-                <LimitedTextInput placeholder="Texto de apresentação" formProperty="about" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
-                <H3 textColor="text-light" className="my-2">Endereço</H3>
+                <FormField
+                  control={form.control}
+                  name="Sobre"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Bio</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Tell us a little bit about yourself"
+                          className="resize-none"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        You can <span>@mention</span> other users and
+                        organizations.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />{' '}
+                <H3 textColor="text-light" className="my-2">
+                  Endereço
+                </H3>
                 <Address />
               </div>
             </div>
             <div className="flex flex-col gap-2">
               <H2 textColor="text-light">Área de Atuação</H2>
               <div className="flex flex-col w-full gap-2">
-                <Input className="w-full" placeholder="Cargo Principal" formProperty="mainRole" register={form.register} errors={form.formState.errors} required errorMessage={messages.fields.required} />
-                <SearchInput placeholder="Atuo como" loadedOptions={data?.secondaryRole} formProperty="secondaryRole" register={form.register} searchOptions={professionRoleOptions} required errors={form.formState.errors} />
+                <FormField
+                  control={form.control}
+                  name="mainRole"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Cargo Principal</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Cargo principal" {...field} />
+                      </FormControl>
+                      <FormDescription>
+                        This is your public display name.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <SearchInput
+                  placeholder="Atuo como"
+                  loadedOptions={data?.secondaryRole}
+                  formProperty="secondaryRole"
+                  register={form.register}
+                  searchOptions={professionRoleOptions}
+                  required
+                  errors={form.formState.errors}
+                />
               </div>
             </div>
             <div className="flex flex-col w-full gap-2">
               <H2 textColor="text-light">Informações Pessoais</H2>
               <div className="w-full flex flex-col gap-2">
-                <H3 textColor="text-light" className="my-2">Mídias Sociais</H3>
+                <H3 textColor="text-light" className="my-2">
+                  Mídias Sociais
+                </H3>
                 <div className="flex flex-row gap-2">
-                  <Input placeholder="Github" formProperty="github" register={form.register} errors={form.formState.errors}  />
-                  <Input placeholder="Linkedin" formProperty="linkedin" register={form.register} errors={form.formState.errors}  />
+                  <FormField
+                    control={form.control}
+                    name="github"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Github</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Github" {...field} />
+                        </FormControl>
+                        <FormDescription>Endereço do github.</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="linkedin"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Linkedin</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Linkedin" {...field} />
+                        </FormControl>
+                        <FormDescription>Endereço do github.</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
                 <div className="flex flex-row gap-2">
-                  <Input type='tel' placeholder="Whatsapp" formProperty="whatsapp" register={form.register} errors={form.formState.errors}  />
+                  <FormField
+                    control={form.control}
+                    name="whatsapp"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Whatsapp</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Whatsapp" {...field} />
+                        </FormControl>
+                        <FormDescription>Endereço do github.</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />{' '}
                 </div>
               </div>
             </div>
@@ -128,5 +225,6 @@ export const PersonalData = (): React.ReactElement => {
         </form>
       </Container>
     </FormProvider>
-  )
-}
+  );
+};
+
